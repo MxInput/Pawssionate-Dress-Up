@@ -18,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b1gyixm342idt" path="res://images/dressing/pants/outlines/baggy_pants_outline.png" id="11_827r2"]
 [ext_resource type="Texture2D" uid="uid://b7oxo5d0c2i6" path="res://images/round_long_button.png" id="17_4axws"]
 [ext_resource type="FontFile" uid="uid://bafoxrel66eun" path="res://images/fonts/kleptocracy titling bd.otf" id="17_827r2"]
-[ext_resource type="Script" uid="uid://pebf32n7qs7r" path="res://openSection.gd" id="18_h7es2"]
-[ext_resource type="Script" uid="uid://fh48bhmfabn2" path="res://nodes/goodHandler.gd" id="19_s00i6"]
+[ext_resource type="Script" uid="uid://pebf32n7qs7r" path="res://scripts/openSection.gd" id="18_h7es2"]
+[ext_resource type="Script" uid="uid://fh48bhmfabn2" path="res://scripts/goodHandler.gd" id="19_s00i6"]
 [ext_resource type="Resource" uid="uid://oo0obbl0gxvf" path="res://resources/goodsContainer.tres" id="21_664bt"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cpdmu"]
@@ -51,16 +51,18 @@ z_index = 5
 texture = ExtResource("3_15wb7")
 
 [node name="Tail" type="Node2D" parent="Character" unique_id=1417274674]
-
-[node name="Tail" type="Sprite2D" parent="Character/Tail" unique_id=1479714348]
-z_index = 1
-texture = ExtResource("4_ubvaf")
+visible = false
 
 [node name="Tail_Color" type="Sprite2D" parent="Character/Tail" unique_id=1224807510]
 modulate = Color(0, 0.5803922, 1, 1)
 texture = ExtResource("5_dv0a3")
 
+[node name="Tail" type="Sprite2D" parent="Character/Tail" unique_id=1479714348]
+z_index = 1
+texture = ExtResource("4_ubvaf")
+
 [node name="FullBody" type="Node2D" parent="Character" unique_id=428845768]
+visible = false
 position = Vector2(0, -0.4999981)
 
 [node name="Full_Body_Color" type="Sprite2D" parent="Character/FullBody" unique_id=762496942]
@@ -86,6 +88,7 @@ position = Vector2(0, -0.4999981)
 texture = ExtResource("9_827r2")
 
 [node name="Hat" type="Node2D" parent="Character" unique_id=832790745]
+visible = false
 
 [node name="Hat_Color" type="Sprite2D" parent="Character/Hat" unique_id=2137608128]
 z_index = 8
@@ -152,21 +155,6 @@ offset_bottom = 40.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 text = "EXIT"
-
-[node name="Tail" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1711731885]
-visible = false
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Tail" unique_id=1016054801]
-layout_mode = 2
-columns = 2
 
 [node name="Accessory" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1263269455]
 visible = false
@@ -244,6 +232,7 @@ layout_mode = 2
 columns = 2
 
 [node name="Shirt" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=194303367]
+visible = false
 layout_mode = 0
 offset_left = 759.0
 offset_top = 296.0
@@ -257,8 +246,22 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 columns = 2
 
-[node name="List" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1322829709]
+[node name="Tail" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1711731885]
 visible = false
+layout_mode = 0
+offset_left = 759.0
+offset_top = 296.0
+offset_right = 1135.0
+offset_bottom = 664.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Tail" unique_id=1016054801]
+layout_mode = 2
+columns = 2
+
+[node name="List" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1322829709]
 layout_mode = 0
 offset_left = 569.0
 offset_top = 296.0
@@ -273,13 +276,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Body" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "goodList")]
+[node name="Body" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("3_g5j3c")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Tail")
+dressUpControl = NodePath("../../..")
 
 [node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Body" unique_id=390548319]
 layout_mode = 0
@@ -287,38 +291,106 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "BODY"
 
-[node name="Tail" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList")]
+[node name="Accessory" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("3_g5j3c")
 script = ExtResource("18_h7es2")
-value = 1
 homeList = NodePath("../..")
-goodList = NodePath("../../../Tail")
+goodList = NodePath("../../../Accessory")
+dressUpControl = NodePath("../../..")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Tail" unique_id=1653524552]
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Accessory" unique_id=1653524552]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "HAT"
+text = "ACCESSORY"
 
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321]
+[node name="Face" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("3_g5j3c")
+script = ExtResource("18_h7es2")
+homeList = NodePath("../..")
+goodList = NodePath("../../../Face")
+dressUpControl = NodePath("../../..")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/TextureButton3" unique_id=1081937820]
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Face" unique_id=1081937820]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "BODY"
 
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462]
+[node name="FullBody" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("3_g5j3c")
+script = ExtResource("18_h7es2")
+homeList = NodePath("../..")
+goodList = NodePath("../../../Full_Body")
+dressUpControl = NodePath("../../..")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/TextureButton4" unique_id=280596257]
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/FullBody" unique_id=280596257]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "BODY"
+
+[node name="Hat" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_g5j3c")
+script = ExtResource("18_h7es2")
+homeList = NodePath("../..")
+goodList = NodePath("../../../Hat")
+dressUpControl = NodePath("../../..")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Hat" unique_id=350591766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ACCESSORY"
+
+[node name="Pants" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_g5j3c")
+script = ExtResource("18_h7es2")
+homeList = NodePath("../..")
+goodList = NodePath("../../../Pants")
+dressUpControl = NodePath("../../..")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Pants" unique_id=1678357141]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "BODY"
+
+[node name="Shirt" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_g5j3c")
+script = ExtResource("18_h7es2")
+homeList = NodePath("../..")
+goodList = NodePath("../../../Shirt")
+dressUpControl = NodePath("../../..")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Shirt" unique_id=1319102589]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "BODY"
+
+[node name="Tail" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl")]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_g5j3c")
+script = ExtResource("18_h7es2")
+homeList = NodePath("../..")
+goodList = NodePath("../../../Tail")
+dressUpControl = NodePath("../../..")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Tail" unique_id=1000288938]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -350,7 +422,7 @@ text = "CUSTOMIZATION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoodHandler" type="Node" parent="." unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container")]
+[node name="GoodHandler" type="Node" parent="." unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container", "player_cat")]
 script = ExtResource("19_s00i6")
 goodsContainer = ExtResource("21_664bt")
 tail_container = NodePath("../CanvasLayer/Dressup/Tail")
@@ -360,7 +432,14 @@ full_body_container = NodePath("../CanvasLayer/Dressup/Full_Body")
 hat_container = NodePath("../CanvasLayer/Dressup/Hat")
 pants_container = NodePath("../CanvasLayer/Dressup/Pants")
 shirt_container = NodePath("../CanvasLayer/Dressup/Shirt")
+player_cat = NodePath("../Character")
 
 [connection signal="button_down" from="CanvasLayer/Dressup/Back" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_back_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Body" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Accessory" to="CanvasLayer/Dressup/List/VBoxContainer/Accessory" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Face" to="CanvasLayer/Dressup/List/VBoxContainer/Face" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/FullBody" to="CanvasLayer/Dressup/List/VBoxContainer/FullBody" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Hat" to="CanvasLayer/Dressup/List/VBoxContainer/Hat" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Pants" to="CanvasLayer/Dressup/List/VBoxContainer/Pants" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Shirt" to="CanvasLayer/Dressup/List/VBoxContainer/Shirt" method="_on_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Tail" to="CanvasLayer/Dressup/List/VBoxContainer/Tail" method="_on_button_down"]
