@@ -12,7 +12,7 @@ enum ATTRIBUTES {
 	HOT_WEAR
 }
 
-var attribute : ATTRIBUTES
+var attribute : ATTRIBUTES;
 
 func _init(_attribute : ATTRIBUTES):
-	attribute = _attribute
+	attribute = _attribute;

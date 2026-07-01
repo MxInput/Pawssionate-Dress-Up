@@ -1,3 +1,5 @@
+class_name AllGoods
+
 enum Goods {
 	ACCESSORY_TIE,
 	

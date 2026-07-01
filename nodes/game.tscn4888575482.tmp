@@ -154,7 +154,6 @@ theme_override_font_sizes/font_size = 16
 text = "EXIT"
 
 [node name="Tail" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1711731885]
-visible = false
 layout_mode = 0
 offset_left = 759.0
 offset_top = 296.0
@@ -165,95 +164,6 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Tail" unique_id=1016054801]
-layout_mode = 2
-columns = 2
-
-[node name="Accessory" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1263269455]
-visible = false
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Accessory" unique_id=1833197249]
-layout_mode = 2
-columns = 2
-
-[node name="Face" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1901081150]
-visible = false
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Face" unique_id=581491775]
-layout_mode = 2
-columns = 2
-
-[node name="Full_Body" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1846470661]
-visible = false
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Full_Body" unique_id=673003025]
-layout_mode = 2
-columns = 2
-
-[node name="Hat" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=164825137]
-visible = false
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Hat" unique_id=2010258767]
-layout_mode = 2
-columns = 2
-
-[node name="Pants" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=370811083]
-visible = false
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Pants" unique_id=591170274]
-layout_mode = 2
-columns = 2
-
-[node name="Shirt" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=194303367]
-layout_mode = 0
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 1135.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Shirt" unique_id=1977395768]
 layout_mode = 2
 columns = 2
 
@@ -350,16 +260,9 @@ text = "CUSTOMIZATION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoodHandler" type="Node" parent="." unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container")]
+[node name="GoodHandler" type="Node" parent="." unique_id=501303278]
 script = ExtResource("19_s00i6")
 goodsContainer = ExtResource("21_664bt")
-tail_container = NodePath("../CanvasLayer/Dressup/Tail")
-accessory_container = NodePath("../CanvasLayer/Dressup/Accessory")
-face_container = NodePath("../CanvasLayer/Dressup/Face")
-full_body_container = NodePath("../CanvasLayer/Dressup/Full_Body")
-hat_container = NodePath("../CanvasLayer/Dressup/Hat")
-pants_container = NodePath("../CanvasLayer/Dressup/Pants")
-shirt_container = NodePath("../CanvasLayer/Dressup/Shirt")
 
 [connection signal="button_down" from="CanvasLayer/Dressup/Back" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_back_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Body" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_button_down"]

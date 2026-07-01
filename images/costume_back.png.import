@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv1ba1um1dyp7"
-path="res://.godot/imported/star_dress_color.png-3114a930c37e149ef3d092114e4812f4.ctex"
+uid="uid://ctvob4dg04peu"
+path="res://.godot/imported/costume_back.png-a406a3882be400efae0c268a83e5fdf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/dressing/base/star_dress_color.png"
-dest_files=["res://.godot/imported/star_dress_color.png-3114a930c37e149ef3d092114e4812f4.ctex"]
+source_file="res://images/costume_back.png"
+dest_files=["res://.godot/imported/costume_back.png-a406a3882be400efae0c268a83e5fdf6.ctex"]
 
 [params]
 
