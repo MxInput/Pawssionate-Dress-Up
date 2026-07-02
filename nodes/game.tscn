@@ -179,6 +179,24 @@ text = "RANDOMIZE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Save" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=937053500]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 428.0
+offset_bottom = 72.0
+texture_normal = ExtResource("16_tvltm")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/Save" unique_id=1573095207]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_font_sizes/font_size = 16
+text = "SAVE OUTFIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Accessory" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1263269455]
 visible = false
 layout_mode = 0
@@ -512,6 +530,7 @@ texture = ExtResource("23_tvltm")
 
 [connection signal="button_down" from="CanvasLayer/Dressup/Back" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_back_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/Randomize" to="GoodHandler" method="_on_randomize_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/Save" to="GoodHandler" method="_on_save_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Body" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Accessory" to="CanvasLayer/Dressup/List/VBoxContainer/Accessory" method="_on_button_down"]
 [connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Face" to="CanvasLayer/Dressup/List/VBoxContainer/Face" method="_on_button_down"]
