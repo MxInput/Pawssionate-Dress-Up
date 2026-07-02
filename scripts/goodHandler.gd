@@ -19,6 +19,7 @@ extends Node
 @export var section_title : Label;
 
 signal enableColor(good_type);
+signal transfer_cat(created_model);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -665,86 +666,21 @@ func _on_randomize_button_down() -> void:
 					tail.visible = false;
 					color_picker.visible = false;
 
-
-func _on_save_button_down() -> void:
-	var body_color : Color = player_cat.get_child(0).modulate;
+func _on_save_open_button_down() -> void:
+	var saves := preload("res://nodes/saves.tscn").instantiate();
+	var tree = get_tree();
 	
-	var accessory = player_cat.find_child("Accessory");
-	var accessory_to_save
+	transfer_cat.connect(saves.load_cat);
+	transfer_cat.emit(player_cat);
 	
-	if (accessory.visible):
-		if (accessory.get_child(0).visible):
-			accessory_to_save = [accessory.get_child(0).texture, accessory.get_child(1).texture];
-		else:
-			accessory_to_save = [null, accessory.get_child(1).texture];
-	else:
-		accessory_to_save = [null, null];
-		
-	var face = player_cat.find_child("Face");
-	var face_to_save
+	tree.current_scene.process_mode = Node.PROCESS_MODE_DISABLED;
+	tree.current_scene.get_child(0).visible = false;
+	tree.current_scene.get_child(0).find_child("CanvasLayer").visible = false;
 	
-	if (face.visible):
-		if (face.get_child(0).visible):
-			face_to_save = [face.get_child(0).texture, face.get_child(1).texture];
-		else:
-			face_to_save = [null, face.get_child(1).texture];
-	else:
-		face_to_save = [null, null];
-		
-	var full_body = player_cat.find_child("FullBody");
-	var full_body_to_save
+	tree.root.add_child(saves);
 	
-	if (full_body.visible):
-		if (full_body.get_child(0).visible):
-			full_body_to_save = [full_body.get_child(0).texture, full_body.get_child(1).texture];
-		else:
-			full_body_to_save = [null, full_body.get_child(1).texture];
-	else:
-		full_body_to_save = [null, null];
-		
-	var hat = player_cat.find_child("Hat");
-	var hat_to_save
-	
-	if (hat.visible):
-		if (hat.get_child(0).visible):
-			hat_to_save = [hat.get_child(0).texture, hat.get_child(1).texture];
-		else:
-			hat_to_save = [null, hat.get_child(1).texture];
-	else:
-		hat_to_save = [null, null];
-		
-	var shirt = player_cat.find_child("Shirt");
-	var shirt_to_save
-	
-	if (shirt.visible):
-		if (shirt.get_child(0).visible):
-			shirt_to_save = [shirt.get_child(0).texture, shirt.get_child(1).texture];
-		else:
-			shirt_to_save = [null, shirt.get_child(1).texture];
-	else:
-		shirt_to_save = [null, null];
-		
-	var pants = player_cat.find_child("Pants");
-	var pants_to_save
-	
-	if (pants.visible):
-		if (pants.get_child(0).visible):
-			pants_to_save = [pants.get_child(0).texture, pants.get_child(1).texture];
-		else:
-			pants_to_save = [null, pants.get_child(1).texture];
-	else:
-		pants_to_save = [null, null];
-		
-	var tail = player_cat.find_child("Tail");
-	var tail_to_save
-	
-	if (tail.visible):
-		if (tail.get_child(0).visible):
-			tail_to_save = [tail.get_child(0).texture, tail.get_child(1).texture];
-		else:
-			tail_to_save = [null, tail.get_child(1).texture];
-	else:
-		tail_to_save = [null, null];
-		
-	var complete_cat_model := CompleteModel.new(body_color, face_to_save, tail_to_save, full_body_to_save, accessory_to_save, hat_to_save, shirt_to_save, pants_to_save);
-	print(complete_cat_model.body_color);
+	await saves.finished
+	saves.queue_free();
+	tree.current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE;
+	tree.current_scene.get_child(0).find_child("CanvasLayer").visible = true;
+	tree.current_scene.get_child(0).visible = true;

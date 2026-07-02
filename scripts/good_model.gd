@@ -2,7 +2,7 @@ extends TextureButton
 
 @export var good : Good;
 
-@onready var goodHandler : Node = get_node("/root/Game/GoodHandler");
+@onready var goodHandler : Node = get_node("/root/Game/Container/GoodHandler");
 
 signal chose_good
 

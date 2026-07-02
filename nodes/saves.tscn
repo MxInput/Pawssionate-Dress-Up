@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dcummjw365qpi"]
+
+[ext_resource type="Script" uid="uid://by5oj8o1ucsgb" path="res://scripts/savesHandler.gd" id="1_4cdi3"]
+[ext_resource type="Texture2D" uid="uid://um7yhxbk0vie" path="res://images/dressing/base/base_cat.png" id="1_8hk77"]
+[ext_resource type="Texture2D" uid="uid://ckpqljd5iei4x" path="res://images/exit_button.png" id="16_ytgpc"]
+[ext_resource type="FontFile" uid="uid://bukn66733hf54" path="res://images/fonts/Stylish Handwriting Free.ttf" id="18_smted"]
+[ext_resource type="FontFile" uid="uid://bafoxrel66eun" path="res://images/fonts/kleptocracy titling bd.otf" id="19_7ifrw"]
+[ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/forest_background.png" id="21_jd56e"]
+
+[node name="Saves" type="Node" unique_id=1722623650 node_paths=PackedStringArray("char_pos", "container")]
+script = ExtResource("1_4cdi3")
+char_pos = NodePath("Character_Pos")
+container = NodePath(".")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1841135035]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1352044042]
+
+[node name="Dressup" type="Control" parent="CanvasLayer" unique_id=166540200]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="CanvasLayer/Dressup" unique_id=1274664935]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 1152.0
+offset_bottom = 78.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("19_7ifrw")
+theme_override_font_sizes/font_size = 50
+text = "SAVES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Save" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=1260655939]
+layout_mode = 0
+offset_left = 709.0
+offset_top = 191.0
+offset_right = 1129.0
+offset_bottom = 255.0
+texture_normal = ExtResource("16_ytgpc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/Save" unique_id=1833263198]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("18_smted")
+theme_override_font_sizes/font_size = 16
+text = "SAVE OUTFIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Return" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=1875593826]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 460.0
+offset_bottom = 104.0
+texture_normal = ExtResource("16_ytgpc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dressup/Return" unique_id=610499768]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("18_smted")
+theme_override_font_sizes/font_size = 16
+text = "GO BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="Sprite2D" parent="." unique_id=383668939]
+position = Vector2(12.625007, -3.7500162)
+scale = Vector2(0.6360677, 0.599537)
+texture = ExtResource("21_jd56e")
+
+[node name="Character_Pos" type="Sprite2D" parent="." unique_id=1660494303]
+visible = false
+z_index = 3
+position = Vector2(-291, 78)
+texture = ExtResource("1_8hk77")
+
+[connection signal="button_down" from="CanvasLayer/Dressup/Save" to="." method="_on_save_button_down"]
+[connection signal="button_down" from="CanvasLayer/Dressup/Return" to="." method="_on_return_button_down"]

@@ -18,9 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://ckpqljd5iei4x" path="res://images/exit_button.png" id="16_tvltm"]
 [ext_resource type="FontFile" uid="uid://bafoxrel66eun" path="res://images/fonts/kleptocracy titling bd.otf" id="17_827r2"]
 [ext_resource type="Texture2D" uid="uid://bn1xwylx0qefa" path="res://images/good_button.png" id="17_engdv"]
+[ext_resource type="FontFile" uid="uid://bukn66733hf54" path="res://images/fonts/Stylish Handwriting Free.ttf" id="17_rylax"]
 [ext_resource type="Script" uid="uid://pebf32n7qs7r" path="res://scripts/openSection.gd" id="18_h7es2"]
 [ext_resource type="Script" uid="uid://fh48bhmfabn2" path="res://scripts/goodHandler.gd" id="19_s00i6"]
-[ext_resource type="Script" uid="uid://pmd3gpuiomdp" path="res://nodes/changeColor.gd" id="20_y7dl2"]
+[ext_resource type="Script" uid="uid://pmd3gpuiomdp" path="res://scripts/changeColor.gd" id="20_y7dl2"]
 [ext_resource type="Resource" uid="uid://oo0obbl0gxvf" path="res://resources/goodsContainer.tres" id="21_664bt"]
 [ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/forest_background.png" id="23_tvltm"]
 
@@ -29,121 +30,123 @@ load_path = "res://.godot/imported/base_cat_color.png-2e332628f5f8132a02c67e72ca
 
 [node name="Game" type="Node" unique_id=1079526052]
 
-[node name="Character" type="Sprite2D" parent="." unique_id=736140802]
+[node name="Container" type="Node2D" parent="." unique_id=1644079045]
+
+[node name="Character" type="Sprite2D" parent="Container" unique_id=736140802]
 z_index = 3
 position = Vector2(-291, 78)
 texture = ExtResource("1_g5j3c")
 
-[node name="Body_Color" type="Sprite2D" parent="Character" unique_id=2138130443]
+[node name="Body_Color" type="Sprite2D" parent="Container/Character" unique_id=2138130443]
 modulate = Color(0, 0.5792901, 0.9985325, 1)
 z_index = 2
 position = Vector2(0, -0.4999981)
 texture = SubResource("CompressedTexture2D_cpdmu")
 
-[node name="Face" type="Node2D" parent="Character" unique_id=2122355316]
+[node name="Face" type="Node2D" parent="Container/Character" unique_id=2122355316]
 
-[node name="Face_Color" type="Sprite2D" parent="Character/Face" unique_id=555816485]
+[node name="Face_Color" type="Sprite2D" parent="Container/Character/Face" unique_id=555816485]
 visible = false
 self_modulate = Color(1, 0.3546866, 0.6125373, 1)
 z_index = 4
 texture = ExtResource("3_7idfb")
 
-[node name="Face" type="Sprite2D" parent="Character/Face" unique_id=165160599]
+[node name="Face" type="Sprite2D" parent="Container/Character/Face" unique_id=165160599]
 z_index = 5
 texture = ExtResource("3_15wb7")
 
-[node name="Pants" type="Node2D" parent="Character/Face" unique_id=820321507]
+[node name="Pants" type="Node2D" parent="Container/Character/Face" unique_id=820321507]
 visible = false
 
-[node name="Pants_Color" type="Sprite2D" parent="Character/Face/Pants" unique_id=1681913912]
+[node name="Pants_Color" type="Sprite2D" parent="Container/Character/Face/Pants" unique_id=1681913912]
 z_index = 4
 texture = ExtResource("10_i1818")
 
-[node name="Pants" type="Sprite2D" parent="Character/Face/Pants" unique_id=1033916482]
+[node name="Pants" type="Sprite2D" parent="Container/Character/Face/Pants" unique_id=1033916482]
 z_index = 5
 texture = ExtResource("11_827r2")
 
-[node name="Tail" type="Node2D" parent="Character" unique_id=1417274674]
+[node name="Tail" type="Node2D" parent="Container/Character" unique_id=1417274674]
 visible = false
 
-[node name="Tail_Color" type="Sprite2D" parent="Character/Tail" unique_id=1224807510]
+[node name="Tail_Color" type="Sprite2D" parent="Container/Character/Tail" unique_id=1224807510]
 modulate = Color(0, 0.5803922, 1, 1)
 texture = ExtResource("5_dv0a3")
 
-[node name="Tail" type="Sprite2D" parent="Character/Tail" unique_id=1479714348]
+[node name="Tail" type="Sprite2D" parent="Container/Character/Tail" unique_id=1479714348]
 z_index = 1
 texture = ExtResource("4_ubvaf")
 
-[node name="FullBody" type="Node2D" parent="Character" unique_id=428845768]
+[node name="FullBody" type="Node2D" parent="Container/Character" unique_id=428845768]
 visible = false
 position = Vector2(0, -0.4999981)
 
-[node name="Full_Body_Color" type="Sprite2D" parent="Character/FullBody" unique_id=762496942]
+[node name="Full_Body_Color" type="Sprite2D" parent="Container/Character/FullBody" unique_id=762496942]
 z_index = 4
 texture = ExtResource("4_uodeg")
 
-[node name="Full_Body" type="Sprite2D" parent="Character/FullBody" unique_id=385794797]
+[node name="Full_Body" type="Sprite2D" parent="Container/Character/FullBody" unique_id=385794797]
 z_index = 5
 texture = ExtResource("5_b11oy")
 
-[node name="Accessory" type="Node2D" parent="Character" unique_id=567855310]
+[node name="Accessory" type="Node2D" parent="Container/Character" unique_id=567855310]
 visible = false
 
-[node name="Accessory_Color" type="Sprite2D" parent="Character/Accessory" unique_id=1901884137]
+[node name="Accessory_Color" type="Sprite2D" parent="Container/Character/Accessory" unique_id=1901884137]
 modulate = Color(0.7019608, 0.34117648, 0.09803922, 1)
 z_index = 8
 position = Vector2(0, -0.4999981)
 texture = ExtResource("8_i1818")
 
-[node name="Accessory" type="Sprite2D" parent="Character/Accessory" unique_id=1244016836]
+[node name="Accessory" type="Sprite2D" parent="Container/Character/Accessory" unique_id=1244016836]
 z_index = 9
 position = Vector2(0, -0.4999981)
 texture = ExtResource("9_827r2")
 
-[node name="Hat" type="Node2D" parent="Character" unique_id=832790745]
+[node name="Hat" type="Node2D" parent="Container/Character" unique_id=832790745]
 visible = false
 
-[node name="Hat_Color" type="Sprite2D" parent="Character/Hat" unique_id=2137608128]
+[node name="Hat_Color" type="Sprite2D" parent="Container/Character/Hat" unique_id=2137608128]
 z_index = 8
 texture = ExtResource("10_827r2")
 
-[node name="Hat" type="Sprite2D" parent="Character/Hat" unique_id=319962791]
+[node name="Hat" type="Sprite2D" parent="Container/Character/Hat" unique_id=319962791]
 z_index = 9
 texture = ExtResource("11_4axws")
 
-[node name="Shirt" type="Node2D" parent="Character" unique_id=1391878076]
+[node name="Shirt" type="Node2D" parent="Container/Character" unique_id=1391878076]
 visible = false
 
-[node name="Shirt_Color" type="Sprite2D" parent="Character/Shirt" unique_id=65872525]
+[node name="Shirt_Color" type="Sprite2D" parent="Container/Character/Shirt" unique_id=65872525]
 z_index = 6
 texture = ExtResource("8_dmoo1")
 
-[node name="Shirt" type="Sprite2D" parent="Character/Shirt" unique_id=1929202114]
+[node name="Shirt" type="Sprite2D" parent="Container/Character/Shirt" unique_id=1929202114]
 z_index = 7
 texture = ExtResource("9_15wb7")
 
-[node name="Pants" type="Node2D" parent="Character" unique_id=1138899999]
+[node name="Pants" type="Node2D" parent="Container/Character" unique_id=1138899999]
 visible = false
 
-[node name="Pants_Color" type="Sprite2D" parent="Character/Pants" unique_id=1476625836]
+[node name="Pants_Color" type="Sprite2D" parent="Container/Character/Pants" unique_id=1476625836]
 z_index = 4
 texture = ExtResource("10_i1818")
 
-[node name="Pants" type="Sprite2D" parent="Character/Pants" unique_id=1280212153]
+[node name="Pants" type="Sprite2D" parent="Container/Character/Pants" unique_id=1280212153]
 z_index = 5
 texture = ExtResource("11_827r2")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=275010655]
+[node name="Camera2D" type="Camera2D" parent="Container" unique_id=275010655]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=19983143]
+[node name="CanvasLayer" type="CanvasLayer" parent="Container" unique_id=19983143]
 
-[node name="Dressup" type="Control" parent="CanvasLayer" unique_id=793752427]
+[node name="Dressup" type="Control" parent="Container/CanvasLayer" unique_id=793752427]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Back" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=687352039]
+[node name="Back" type="TextureButton" parent="Container/CanvasLayer/Dressup" unique_id=687352039]
 layout_mode = 0
 offset_left = 709.0
 offset_top = 191.0
@@ -151,17 +154,18 @@ offset_right = 1129.0
 offset_bottom = 255.0
 texture_normal = ExtResource("16_tvltm")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/Back" unique_id=1125955950]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/Back" unique_id=1125955950]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 theme_override_font_sizes/font_size = 16
 text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Randomize" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=864396881]
+[node name="Randomize" type="TextureButton" parent="Container/CanvasLayer/Dressup" unique_id=864396881]
 layout_mode = 0
 offset_left = 709.0
 offset_top = 108.0
@@ -169,17 +173,18 @@ offset_right = 1129.0
 offset_bottom = 172.0
 texture_normal = ExtResource("16_tvltm")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/Randomize" unique_id=1423279193]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/Randomize" unique_id=1423279193]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 theme_override_font_sizes/font_size = 16
 text = "RANDOMIZE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Save" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=937053500]
+[node name="SaveOpen" type="TextureButton" parent="Container/CanvasLayer/Dressup" unique_id=937053500]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -187,17 +192,18 @@ offset_right = 428.0
 offset_bottom = 72.0
 texture_normal = ExtResource("16_tvltm")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/Save" unique_id=1573095207]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/SaveOpen" unique_id=1573095207]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 theme_override_font_sizes/font_size = 16
-text = "SAVE OUTFIT"
+text = "OPEN SAVES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Accessory" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1263269455]
+[node name="Accessory" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=1263269455]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -208,11 +214,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Accessory" unique_id=1833197249]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Accessory" unique_id=1833197249]
 layout_mode = 2
 columns = 2
 
-[node name="Face" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1901081150]
+[node name="Face" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=1901081150]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -223,11 +229,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Face" unique_id=581491775]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Face" unique_id=581491775]
 layout_mode = 2
 columns = 2
 
-[node name="Full_Body" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1846470661]
+[node name="Full_Body" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=1846470661]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -238,11 +244,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Full_Body" unique_id=673003025]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Full_Body" unique_id=673003025]
 layout_mode = 2
 columns = 2
 
-[node name="Hat" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=164825137]
+[node name="Hat" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=164825137]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -253,11 +259,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Hat" unique_id=2010258767]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Hat" unique_id=2010258767]
 layout_mode = 2
 columns = 2
 
-[node name="Pants" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=370811083]
+[node name="Pants" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=370811083]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -268,11 +274,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Pants" unique_id=591170274]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Pants" unique_id=591170274]
 layout_mode = 2
 columns = 2
 
-[node name="Shirt" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=194303367]
+[node name="Shirt" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=194303367]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -283,11 +289,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Shirt" unique_id=1977395768]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Shirt" unique_id=1977395768]
 layout_mode = 2
 columns = 2
 
-[node name="Tail" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1711731885]
+[node name="Tail" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=1711731885]
 visible = false
 layout_mode = 0
 offset_left = 759.0
@@ -298,11 +304,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/Tail" unique_id=1016054801]
+[node name="GridContainer" type="GridContainer" parent="Container/CanvasLayer/Dressup/Tail" unique_id=1016054801]
 layout_mode = 2
 columns = 2
 
-[node name="List" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=1322829709]
+[node name="List" type="ScrollContainer" parent="Container/CanvasLayer/Dressup" unique_id=1322829709]
 layout_mode = 0
 offset_left = 709.0
 offset_top = 296.0
@@ -312,12 +318,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Dressup/List" unique_id=856852555]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/CanvasLayer/Dressup/List" unique_id=856852555]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Body" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "dressUpControl", "color_picker", "section_title")]
+[node name="Body" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "dressUpControl", "color_picker", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -327,16 +333,17 @@ dressUpControl = NodePath("../../..")
 color_picker = NodePath("../../../ColorPicker")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Body" unique_id=390548319]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" unique_id=390548319]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "BODY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Accessory" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Accessory" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -346,16 +353,17 @@ goodList = NodePath("../../../Accessory")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Accessory" unique_id=1653524552]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Accessory" unique_id=1653524552]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "ACCESSORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Face" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Face" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -365,16 +373,17 @@ goodList = NodePath("../../../Face")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Face" unique_id=1081937820]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Face" unique_id=1081937820]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "FACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FullBody" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="FullBody" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -384,16 +393,17 @@ goodList = NodePath("../../../Full_Body")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/FullBody" unique_id=280596257]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/FullBody" unique_id=280596257]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "FULL BODY CLOTHES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hat" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Hat" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -403,16 +413,17 @@ goodList = NodePath("../../../Hat")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Hat" unique_id=350591766]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Hat" unique_id=350591766]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "HATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pants" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Pants" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -422,16 +433,17 @@ goodList = NodePath("../../../Pants")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Pants" unique_id=1678357141]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Pants" unique_id=1678357141]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "PANTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Shirt" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Shirt" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -441,16 +453,17 @@ goodList = NodePath("../../../Shirt")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Shirt" unique_id=1319102589]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Shirt" unique_id=1319102589]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "SHIRTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tail" type="TextureButton" parent="CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Tail" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -460,16 +473,17 @@ goodList = NodePath("../../../Tail")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
-[node name="Label" type="Label" parent="CanvasLayer/Dressup/List/VBoxContainer/Tail" unique_id=1000288938]
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Tail" unique_id=1000288938]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.14117648, 0.62352943, 0.87058824, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
 text = "TAIL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Section" type="Label" parent="CanvasLayer/Dressup" unique_id=1105490190]
+[node name="Section" type="Label" parent="Container/CanvasLayer/Dressup" unique_id=1105490190]
 visible = false
 layout_mode = 0
 offset_left = 717.0
@@ -484,7 +498,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Title" type="Label" parent="CanvasLayer/Dressup" unique_id=1971737314]
+[node name="Title" type="Label" parent="Container/CanvasLayer/Dressup" unique_id=1971737314]
 layout_mode = 0
 offset_left = 5.0
 offset_right = 1152.0
@@ -496,7 +510,7 @@ text = "CUSTOMIZATION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/Dressup" unique_id=416704247 node_paths=PackedStringArray("player_cat")]
+[node name="ColorPicker" type="ColorPicker" parent="Container/CanvasLayer/Dressup" unique_id=416704247 node_paths=PackedStringArray("player_cat")]
 visible = false
 layout_mode = 0
 offset_left = 515.0
@@ -509,7 +523,7 @@ presets_visible = false
 script = ExtResource("20_y7dl2")
 player_cat = NodePath("../../../Character")
 
-[node name="GoodHandler" type="Node" parent="." unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container", "player_cat", "color_picker", "section_title")]
+[node name="GoodHandler" type="Node" parent="Container" unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container", "player_cat", "color_picker", "section_title")]
 script = ExtResource("19_s00i6")
 goodsContainer = ExtResource("21_664bt")
 tail_container = NodePath("../CanvasLayer/Dressup/Tail")
@@ -523,20 +537,20 @@ player_cat = NodePath("../Character")
 color_picker = NodePath("../CanvasLayer/Dressup/ColorPicker")
 section_title = NodePath("../CanvasLayer/Dressup/Section")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1192258246]
+[node name="Background" type="Sprite2D" parent="Container" unique_id=1192258246]
 position = Vector2(12.625007, -3.7500162)
 scale = Vector2(0.6360677, 0.599537)
 texture = ExtResource("23_tvltm")
 
-[connection signal="button_down" from="CanvasLayer/Dressup/Back" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_back_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/Randomize" to="GoodHandler" method="_on_randomize_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/Save" to="GoodHandler" method="_on_save_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Body" to="CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Accessory" to="CanvasLayer/Dressup/List/VBoxContainer/Accessory" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Face" to="CanvasLayer/Dressup/List/VBoxContainer/Face" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/FullBody" to="CanvasLayer/Dressup/List/VBoxContainer/FullBody" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Hat" to="CanvasLayer/Dressup/List/VBoxContainer/Hat" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Pants" to="CanvasLayer/Dressup/List/VBoxContainer/Pants" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Shirt" to="CanvasLayer/Dressup/List/VBoxContainer/Shirt" method="_on_button_down"]
-[connection signal="button_down" from="CanvasLayer/Dressup/List/VBoxContainer/Tail" to="CanvasLayer/Dressup/List/VBoxContainer/Tail" method="_on_button_down"]
-[connection signal="color_changed" from="CanvasLayer/Dressup/ColorPicker" to="CanvasLayer/Dressup/ColorPicker" method="_on_color_changed"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/Back" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_back_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/Randomize" to="Container/GoodHandler" method="_on_randomize_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/SaveOpen" to="Container/GoodHandler" method="_on_save_open_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Accessory" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Accessory" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Face" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Face" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/FullBody" to="Container/CanvasLayer/Dressup/List/VBoxContainer/FullBody" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Hat" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Hat" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Pants" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Pants" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Shirt" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Shirt" method="_on_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Tail" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Tail" method="_on_button_down"]
+[connection signal="color_changed" from="Container/CanvasLayer/Dressup/ColorPicker" to="Container/CanvasLayer/Dressup/ColorPicker" method="_on_color_changed"]
