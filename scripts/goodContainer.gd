@@ -185,3 +185,40 @@ extends Resource
 	AllGoods.Goods.TAIL_4: 10,
 	AllGoods.Goods.TAIL_5: 10
 }
+
+@export var customizableList : Dictionary[AllGoods.Goods, bool] = {
+	AllGoods.Goods.ACCESSORY_TIE: true,
+	
+	AllGoods.Goods.FACE_HAPPY: false,
+	AllGoods.Goods.FACE_KISSY: false,
+	AllGoods.Goods.FACE_NEUTRAL: true,
+	AllGoods.Goods.FACE_ZOINKED: false,
+	
+	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: false,
+	AllGoods.Goods.FULL_BODY_STAR_DRESS: false,
+	
+	AllGoods.Goods.HAT_BASEBALL: true,
+	AllGoods.Goods.HAT_BEANIE: true,
+	AllGoods.Goods.HAT_CHEF: true,
+	AllGoods.Goods.HAT_FEDORA: false,
+	AllGoods.Goods.HAT_FEZ: false,
+	AllGoods.Goods.HAT_ORANGE: false,
+	AllGoods.Goods.HAT_SAILOR: false,
+	AllGoods.Goods.HAT_TOP_HAT: true,
+	AllGoods.Goods.HAT_VISOR: true,
+	
+	AllGoods.Goods.PANTS_BAGGY: false,
+	AllGoods.Goods.PANTS_TWO_COLOR: false,
+	AllGoods.Goods.PANTS_LOVE_JEANS: false,
+	AllGoods.Goods.PANTS_NORM: true,
+	
+	AllGoods.Goods.SHIRT_BLUE_WAVEY: false,
+	AllGoods.Goods.SHIRT_BUTTONUP: true,
+	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: false,
+	
+	AllGoods.Goods.TAIL_1: true,
+	AllGoods.Goods.TAIL_2: true,
+	AllGoods.Goods.TAIL_3: true,
+	AllGoods.Goods.TAIL_4: true,
+	AllGoods.Goods.TAIL_5: true
+}

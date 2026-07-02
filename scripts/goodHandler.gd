@@ -14,12 +14,18 @@ extends Node
 
 @export var player_cat : Sprite2D;
 
+@export var color_picker : ColorPicker;
+
+signal enableColor(good_type);
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	enableColor.connect(color_picker.change)
+	
 	for i in AllGoods.Goods.size():
 		var current_good = cat_model.instantiate();
 		
-		current_good.good = Good.new(goodsContainer.typeList[AllGoods.Goods.values()[i]], [Attribute.new(goodsContainer.attribute1List[AllGoods.Goods.values()[1]])], goodsContainer.priceList[AllGoods.Goods.values()[i]], AllGoods.Goods.values()[i], goodsContainer.outlineList[AllGoods.Goods.values()[i]], goodsContainer.colorList[AllGoods.Goods.values()[i]]);
+		current_good.good = Good.new(goodsContainer.typeList[AllGoods.Goods.values()[i]], [Attribute.new(goodsContainer.attribute1List[AllGoods.Goods.values()[1]])], goodsContainer.priceList[AllGoods.Goods.values()[i]], AllGoods.Goods.values()[i], goodsContainer.outlineList[AllGoods.Goods.values()[i]], goodsContainer.colorList[AllGoods.Goods.values()[i]], goodsContainer.customizableList[AllGoods.Goods.values()[i]]);
 		
 		current_good.get_child(0).get_child(1).texture = current_good.good.outline;
 		
@@ -47,6 +53,12 @@ func _ready() -> void:
 				current_good.get_child(0).get_child(1).z_index = 0;
 				
 func change(selected_good : Good):
+	if (selected_good.customizable):
+		color_picker.visible = true;
+		enableColor.emit(selected_good.good_type);
+	else:
+		color_picker.visible = false;
+		
 	match selected_good.good_type:
 		Good.GoodType.ACCESSORY:
 			var accessory = player_cat.find_child("Accessory");
