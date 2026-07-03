@@ -1,4 +1,4 @@
 class_name AllModels
 extends Resource
 
-@export var models : Array[CompleteModel] = [];
+@export var models : Array = [];
