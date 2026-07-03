@@ -7,10 +7,11 @@
 [ext_resource type="FontFile" uid="uid://bafoxrel66eun" path="res://images/fonts/kleptocracy titling bd.otf" id="19_7ifrw"]
 [ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/background/forest_background.png" id="21_jd56e"]
 
-[node name="Saves" type="Node" unique_id=1722623650 node_paths=PackedStringArray("char_pos", "container")]
+[node name="Saves" type="Node" unique_id=1722623650 node_paths=PackedStringArray("char_pos", "container", "saves_container")]
 script = ExtResource("1_4cdi3")
 char_pos = NodePath("Character_Pos")
 container = NodePath(".")
+saves_container = NodePath("CanvasLayer/Dressup/SavedOutfits/GridContainer")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1841135035]
 
@@ -74,18 +75,20 @@ vertical_alignment = 1
 
 [node name="SavedOutfits" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=161527978]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 725.0
+offset_top = 255.0
+offset_right = 1101.0
+offset_bottom = 628.0
+horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/SavedOutfits" unique_id=353013851]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 2
 
-[node name="SavedOutfit" type="Control" parent="CanvasLayer/Dressup/SavedOutfits/GridContainer" unique_id=44228325]
-layout_mode = 2
-
 [node name="Background" type="Sprite2D" parent="." unique_id=383668939]
-position = Vector2(12.625007, -3.7500162)
+position = Vector2(12.625006, 0.24998379)
 scale = Vector2(0.6360677, 0.599537)
 texture = ExtResource("21_jd56e")
 

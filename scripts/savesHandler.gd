@@ -1,12 +1,28 @@
 extends Node
 
+const SAVE_PATH := "user://paw_dressup_save.tres"
+
+var save_game : AllModels = null
+
 @export var char_pos : Sprite2D;
 @export var container : Node;
+
+@onready var complete_temp = preload("res://nodes/saved_outfit.tscn");
+@export var saves_container : GridContainer;
 
 var player_cat;
 
 signal finished;
 
+func _ready() -> void:
+	if ResourceLoader.exists(SAVE_PATH):
+		save_game = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
+	else:
+		save_game = AllModels.new();
+	
+func save() -> void:
+	ResourceSaver.save(save_game, SAVE_PATH);
+			
 func load_cat(cat : Sprite2D) -> void:
 	var created_cat = cat.duplicate()
 	created_cat.position = char_pos.position;
@@ -95,6 +111,10 @@ func _on_save_button_down() -> void:
 		tail_to_save = [null, null];
 		
 	var complete_cat_model := CompleteModel.new(body_color, face_to_save, tail_to_save, full_body_to_save, accessory_to_save, hat_to_save, shirt_to_save, pants_to_save);
-
+	save_game.models.push_back(complete_cat_model);
+	
+	var new_model_display = complete_temp.instantiate();
+	saves_container.add_child(new_model_display);
+	
 func _on_return_button_down() -> void:
 	finished.emit();

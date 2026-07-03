@@ -547,7 +547,7 @@ color_picker = NodePath("../CanvasLayer/Dressup/ColorPicker")
 section_title = NodePath("../CanvasLayer/Dressup/Section")
 
 [node name="Background" type="Sprite2D" parent="Container" unique_id=1192258246]
-position = Vector2(12.625007, -3.7500162)
+position = Vector2(12.625006, 0.24998379)
 scale = Vector2(0.6360677, 0.599537)
 texture = ExtResource("23_tvltm")
 
