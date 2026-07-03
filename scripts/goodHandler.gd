@@ -62,9 +62,12 @@ func change(selected_good : Good):
 	else:
 		color_picker.visible = false;
 		
-	match selected_good.good_type:
+	match selected_good.good_type:		
 		Good.GoodType.ACCESSORY:
 			var accessory = player_cat.find_child("Accessory");
+			
+			accessory.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
 			
 			if (selected_good.outline == accessory.get_child(1).texture && accessory.visible):
 				accessory.visible = false;
@@ -82,6 +85,9 @@ func change(selected_good : Good):
 		Good.GoodType.FACE:	
 			var face = player_cat.find_child("Face");
 			
+			face.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
+				
 			if (selected_good.outline == face.get_child(1).texture && face.visible):
 				face.visible = false;
 				color_picker.visible = false;
@@ -100,6 +106,9 @@ func change(selected_good : Good):
 			
 			var shirt = player_cat.find_child("Shirt");
 			var pants = player_cat.find_child("Pants");
+			
+			full_body.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
 			
 			if (selected_good.outline == full_body.get_child(1).texture && full_body.visible):
 				full_body.visible = false;
@@ -123,6 +132,9 @@ func change(selected_good : Good):
 		Good.GoodType.HAT:
 			var hat = player_cat.find_child("Hat");
 			
+			hat.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
+			
 			if (selected_good.outline == hat.get_child(1).texture && hat.visible):
 				hat.visible = false;
 				color_picker.visible = false;
@@ -139,6 +151,9 @@ func change(selected_good : Good):
 		Good.GoodType.PANTS:
 			var full_body = player_cat.find_child("FullBody");
 			var pants = player_cat.find_child("Pants");
+			
+			pants.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
 			
 			if (selected_good.outline == pants.get_child(1).texture && pants.visible):
 				pants.visible = false;
@@ -160,6 +175,9 @@ func change(selected_good : Good):
 			var full_body = player_cat.find_child("FullBody");
 			var shirt = player_cat.find_child("Shirt");
 			
+			shirt.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
+			
 			if (selected_good.outline == shirt.get_child(1).texture && shirt.visible):
 				shirt.visible = false;
 				color_picker.visible = false;
@@ -178,6 +196,9 @@ func change(selected_good : Good):
 					shirt.get_child(0).visible = false;
 		Good.GoodType.TAIL:
 			var tail = player_cat.find_child("Tail");
+			
+			tail.get_child(0).modulate = Color.WHITE;
+			color_picker.color = Color.WHITE;
 			
 			if (selected_good.outline == tail.get_child(1).texture && tail.visible):
 				tail.visible = false;

@@ -6,15 +6,28 @@ extends Resource
 	AllGoods.Goods.ACCESSORY_SHADES: preload("res://images/dressing/accessories/outlines/shades_outline.png"),
 	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: preload("res://images/dressing/accessories/outlines/circle_glasses_outline.png"),
 	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: preload("res://images/dressing/accessories/outlines/square_glasses_outline.png"),
+	AllGoods.Goods.ACCESSORY_BOW_TIE: preload("res://images/dressing/accessories/outlines/bow_tie_outline.png"),
+	AllGoods.Goods.ACCESSORY_SCARF: preload("res://images/dressing/accessories/outlines/scarf_outline.png"),
 	
 	AllGoods.Goods.FACE_HAPPY: preload("res://images/dressing/faces/full/happy.png"),
 	AllGoods.Goods.FACE_KISSY: preload("res://images/dressing/faces/full/kissy.png"),
 	AllGoods.Goods.FACE_NEUTRAL: preload("res://images/dressing/faces/outlines/neutral_outline.png"),
 	AllGoods.Goods.FACE_ZOINKED: preload("res://images/dressing/faces/full/zoinked.png"),
+	AllGoods.Goods.FACE_ALERT: preload("res://images/dressing/faces/full/alert.png"),
+	AllGoods.Goods.FACE_HEARTS: preload("res://images/dressing/faces/outlines/hearts_outline.png"),
+	AllGoods.Goods.FACE_BUCKTEETH: preload("res://images/dressing/faces/outlines/buckteeth_outline.png"),
+	AllGoods.Goods.FACE_NO_THOUGHTS: preload("res://images/dressing/faces/full/no_thoughts.png"),
+	AllGoods.Goods.FACE_SILLY: preload("res://images/dressing/faces/full/silly.png"),
+	AllGoods.Goods.FACE_XD: preload("res://images/dressing/faces/full/xd.png"),
 	
 	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: preload("res://images/dressing/fullBody/outline/orange_overalls_outline.png"),
 	AllGoods.Goods.FULL_BODY_STAR_DRESS: preload("res://images/dressing/fullBody/outline/star_dress_outline.png"),
-
+	AllGoods.Goods.FULL_BODY_SHORT_DRESS: preload("res://images/dressing/fullBody/outline/short_dress_outline.png"),
+	AllGoods.Goods.FULL_BODY_SPORTS_OUTFIT: preload("res://images/dressing/fullBody/outline/sports_outfit_outline.png"),
+	AllGoods.Goods.FULL_BODY_GREEN_DRESS: preload("res://images/dressing/fullBody/outline/green_dress_outline.png"),
+	AllGoods.Goods.FULL_BODY_NIGHTY: preload("res://images/dressing/fullBody/outline/nighty_outline.png"),
+	AllGoods.Goods.FULL_BODY_JUMPER: preload("res://images/dressing/fullBody/outline/jumper_outline.png"),
+	
 	AllGoods.Goods.HAT_BASEBALL: preload("res://images/dressing/hats/outlines/baseball_hat_outline.png"),
 	AllGoods.Goods.HAT_BEANIE: preload("res://images/dressing/hats/outlines/beanie_outline.png"),
 	AllGoods.Goods.HAT_CHEF: preload("res://images/dressing/hats/outlines/chef_outline.png"),
@@ -24,21 +37,35 @@ extends Resource
 	AllGoods.Goods.HAT_SAILOR: preload("res://images/dressing/hats/outlines/sailor_outline.png"),
 	AllGoods.Goods.HAT_TOP_HAT: preload("res://images/dressing/hats/outlines/top_hat_outline.png"),
 	AllGoods.Goods.HAT_VISOR: preload("res://images/dressing/hats/outlines/visor_outline.png"),
+	AllGoods.Goods.HAT_HEADPHONES: preload("res://images/dressing/hats/outlines/headphones_outline.png"),
+	AllGoods.Goods.HAT_BOW: preload("res://images/dressing/hats/outlines/bow_outline.png"),
 	
 	AllGoods.Goods.PANTS_BAGGY: preload("res://images/dressing/pants/outlines/baggy_pants_outline.png"),
 	AllGoods.Goods.PANTS_TWO_COLOR: preload("res://images/dressing/pants/outlines/jeans_two_color_outline.png"),
 	AllGoods.Goods.PANTS_LOVE_JEANS: preload("res://images/dressing/pants/outlines/love_jeans_outline.png"),
 	AllGoods.Goods.PANTS_NORM: preload("res://images/dressing/pants/outlines/pants_outline.png"),
+	AllGoods.Goods.PANTS_JEANS_SHORTS: preload("res://images/dressing/pants/outlines/jeans_shorts_outline.png"),
+	AllGoods.Goods.PANTS_FLOWER: preload("res://images/dressing/pants/outlines/flower_pants_outline.png"),
+	AllGoods.Goods.PANTS_LONG_SKIRT: preload("res://images/dressing/pants/outlines/long_skirt_outline.png"),
+	AllGoods.Goods.PANTS_SHORT_SKIRT: preload("res://images/dressing/pants/outlines/short_skirt_outline.png"),
+	AllGoods.Goods.PANTS_WORKOUT_BOTTOMS: preload("res://images/dressing/pants/outlines/workout_bottom_outline.png"),
 	
 	AllGoods.Goods.SHIRT_BLUE_WAVEY: preload("res://images/dressing/shirts/outlines/blue_wavey_shirt_outline.png"),
 	AllGoods.Goods.SHIRT_BUTTONUP: preload("res://images/dressing/shirts/outlines/buttonup_outline.png"),
 	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: preload("res://images/dressing/shirts/outlines/crop_top_green_outline.png"),
+	AllGoods.Goods.SHIRT_LEAF_SHIRT: preload("res://images/dressing/shirts/outlines/leaf_shirt_outline.png"),
+	AllGoods.Goods.SHIRT_WAVEY_SHIRT: preload("res://images/dressing/shirts/outlines/wavey_shirt_outline.png"),
+	AllGoods.Goods.SHIRT_SHORT_SWEATER: preload("res://images/dressing/shirts/outlines/short_sweater_outline.png"),
+	AllGoods.Goods.SHIRT_PAJAMA_TOP: preload("res://images/dressing/shirts/outlines/pajama_top_outline.png"),
+	AllGoods.Goods.SHIRT_CUFFED_SWEATER: preload("res://images/dressing/shirts/outlines/sweater_cuffs_outline.png"),
+	AllGoods.Goods.SHIRT_SUIT_TOP: preload("res://images/dressing/shirts/outlines/suit_top_outline.png"),
 	
 	AllGoods.Goods.TAIL_1: preload("res://images/dressing/tails/outlines/tail1_outline.png"),
 	AllGoods.Goods.TAIL_2: preload("res://images/dressing/tails/outlines/tail2_outline.png"),
 	AllGoods.Goods.TAIL_3: preload("res://images/dressing/tails/outlines/tail3_outline.png"),
 	AllGoods.Goods.TAIL_4: preload("res://images/dressing/tails/outlines/tail4_outline.png"),
-	AllGoods.Goods.TAIL_5: preload("res://images/dressing/tails/outlines/tail5_outline.png")
+	AllGoods.Goods.TAIL_5: preload("res://images/dressing/tails/outlines/tail5_outline.png"),
+	AllGoods.Goods.TAIL_6: preload("res://images/dressing/tails/outlines/tail6_outline.png")
 }
 
 @export var colorList : Dictionary[AllGoods.Goods, Texture2D] = {
@@ -46,14 +73,27 @@ extends Resource
 	AllGoods.Goods.ACCESSORY_SHADES: preload("res://images/dressing/accessories/colors/shades_color.png"),
 	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: null,
 	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: null,
+	AllGoods.Goods.ACCESSORY_BOW_TIE: preload("res://images/dressing/accessories/colors/bow_tie_color.png"),
+	AllGoods.Goods.ACCESSORY_SCARF: preload("res://images/dressing/accessories/colors/scarf_color.png"),
 	
 	AllGoods.Goods.FACE_HAPPY: null,
 	AllGoods.Goods.FACE_KISSY: null,
 	AllGoods.Goods.FACE_NEUTRAL: preload("res://images/dressing/faces/colors/neutral_color.png"),
 	AllGoods.Goods.FACE_ZOINKED: null,
+	AllGoods.Goods.FACE_ALERT: null,
+	AllGoods.Goods.FACE_HEARTS: preload("res://images/dressing/faces/colors/hearts_color.png"),
+	AllGoods.Goods.FACE_BUCKTEETH: preload("res://images/dressing/faces/colors/buckteeth_color.png"),
+	AllGoods.Goods.FACE_NO_THOUGHTS: null,
+	AllGoods.Goods.FACE_SILLY: null,
+	AllGoods.Goods.FACE_XD: null,
 	
 	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: preload("res://images/dressing/fullBody/color/orange_overalls_color.png"),
 	AllGoods.Goods.FULL_BODY_STAR_DRESS: preload("res://images/dressing/fullBody/color/star_dress_color.png"),
+	AllGoods.Goods.FULL_BODY_SHORT_DRESS: preload("res://images/dressing/fullBody/color/short_dress_color.png"),
+	AllGoods.Goods.FULL_BODY_SPORTS_OUTFIT: preload("res://images/dressing/fullBody/color/sports_outfit_color.png"),
+	AllGoods.Goods.FULL_BODY_GREEN_DRESS: preload("res://images/dressing/fullBody/color/green_dress_color.png"),
+	AllGoods.Goods.FULL_BODY_NIGHTY: preload("res://images/dressing/fullBody/color/nighty_color.png"),
+	AllGoods.Goods.FULL_BODY_JUMPER: preload("res://images/dressing/fullBody/color/jumper_color.png"),
 	
 	AllGoods.Goods.HAT_BASEBALL: preload("res://images/dressing/hats/colors/baseball_hat_color.png"),
 	AllGoods.Goods.HAT_BEANIE: preload("res://images/dressing/hats/colors/beanie_color.png"),
@@ -64,21 +104,35 @@ extends Resource
 	AllGoods.Goods.HAT_SAILOR: preload("res://images/dressing/hats/colors/sailor_color.png"),
 	AllGoods.Goods.HAT_TOP_HAT: preload("res://images/dressing/hats/colors/top_hat_color.png"),
 	AllGoods.Goods.HAT_VISOR: preload("res://images/dressing/hats/colors/visor_color.png"),
+	AllGoods.Goods.HAT_HEADPHONES: preload("res://images/dressing/hats/colors/headphones_color.png"),
+	AllGoods.Goods.HAT_BOW: preload("res://images/dressing/hats/colors/bow_color.png"),
 	
 	AllGoods.Goods.PANTS_BAGGY: preload("res://images/dressing/pants/colors/baggy_pants_color.png"),
 	AllGoods.Goods.PANTS_TWO_COLOR: preload("res://images/dressing/pants/colors/jeans_two_color_color.png"),
 	AllGoods.Goods.PANTS_LOVE_JEANS: preload("res://images/dressing/pants/colors/love_jeans_color.png"),
 	AllGoods.Goods.PANTS_NORM: preload("res://images/dressing/pants/colors/pants_color.png"),
-	
+	AllGoods.Goods.PANTS_JEANS_SHORTS: preload("res://images/dressing/pants/colors/jeans_shorts_color.png"),
+	AllGoods.Goods.PANTS_FLOWER: preload("res://images/dressing/pants/colors/flower_pants_color.png"),
+	AllGoods.Goods.PANTS_LONG_SKIRT: preload("res://images/dressing/pants/colors/long_skirt_color.png"),
+	AllGoods.Goods.PANTS_SHORT_SKIRT: preload("res://images/dressing/pants/colors/short_skirt_color.png"),
+	AllGoods.Goods.PANTS_WORKOUT_BOTTOMS: preload("res://images/dressing/pants/colors/workout_bottom_color.png"),
+		
 	AllGoods.Goods.SHIRT_BLUE_WAVEY: preload("res://images/dressing/shirts/colors/blue_wavey_shirt_color.png"),
 	AllGoods.Goods.SHIRT_BUTTONUP: preload("res://images/dressing/shirts/colors/buttonup_color.png"),
 	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: preload("res://images/dressing/shirts/colors/crop_top_green_color.png"),
+	AllGoods.Goods.SHIRT_LEAF_SHIRT: preload("res://images/dressing/shirts/colors/leaf_shirt_color.png"),
+	AllGoods.Goods.SHIRT_WAVEY_SHIRT: preload("res://images/dressing/shirts/colors/wavey_shirt_color.png"),
+	AllGoods.Goods.SHIRT_SHORT_SWEATER: preload("res://images/dressing/shirts/colors/short_sweater_color.png"),
+	AllGoods.Goods.SHIRT_PAJAMA_TOP: preload("res://images/dressing/shirts/colors/pajama_top_color.png"),
+	AllGoods.Goods.SHIRT_CUFFED_SWEATER: preload("res://images/dressing/shirts/colors/sweater_cuffs_color.png"),
+	AllGoods.Goods.SHIRT_SUIT_TOP: preload("res://images/dressing/shirts/colors/suit_top_color.png"),
 	
 	AllGoods.Goods.TAIL_1: preload("res://images/dressing/tails/color/tail1_color.png"),
 	AllGoods.Goods.TAIL_2: preload("res://images/dressing/tails/color/tail2_color.png"),
 	AllGoods.Goods.TAIL_3: preload("res://images/dressing/tails/color/tail3_color.png"),
 	AllGoods.Goods.TAIL_4: preload("res://images/dressing/tails/color/tail4_color.png"),
-	AllGoods.Goods.TAIL_5: preload("res://images/dressing/tails/color/tail5_color.png")
+	AllGoods.Goods.TAIL_5: preload("res://images/dressing/tails/color/tail5_color.png"),
+	AllGoods.Goods.TAIL_6: preload("res://images/dressing/tails/color/tail6_color.png")
 }
 
 @export var typeList : Dictionary[AllGoods.Goods, Good.GoodType] = {
@@ -86,14 +140,27 @@ extends Resource
 	AllGoods.Goods.ACCESSORY_SHADES: Good.GoodType.ACCESSORY,
 	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: Good.GoodType.ACCESSORY,
 	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: Good.GoodType.ACCESSORY,
+	AllGoods.Goods.ACCESSORY_BOW_TIE: Good.GoodType.ACCESSORY,
+	AllGoods.Goods.ACCESSORY_SCARF: Good.GoodType.ACCESSORY,
 	
 	AllGoods.Goods.FACE_HAPPY: Good.GoodType.FACE,
 	AllGoods.Goods.FACE_KISSY: Good.GoodType.FACE,
 	AllGoods.Goods.FACE_NEUTRAL: Good.GoodType.FACE,
 	AllGoods.Goods.FACE_ZOINKED: Good.GoodType.FACE,
+	AllGoods.Goods.FACE_ALERT: Good.GoodType.FACE,
+	AllGoods.Goods.FACE_HEARTS: Good.GoodType.FACE,
+	AllGoods.Goods.FACE_BUCKTEETH: Good.GoodType.FACE,
+	AllGoods.Goods.FACE_NO_THOUGHTS: Good.GoodType.FACE,
+	AllGoods.Goods.FACE_SILLY: Good.GoodType.FACE,
+	AllGoods.Goods.FACE_XD: Good.GoodType.FACE,
 	
 	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: Good.GoodType.FULL_BODY,
 	AllGoods.Goods.FULL_BODY_STAR_DRESS: Good.GoodType.FULL_BODY,
+	AllGoods.Goods.FULL_BODY_SHORT_DRESS: Good.GoodType.FULL_BODY,
+	AllGoods.Goods.FULL_BODY_SPORTS_OUTFIT: Good.GoodType.FULL_BODY,
+	AllGoods.Goods.FULL_BODY_GREEN_DRESS: Good.GoodType.FULL_BODY,
+	AllGoods.Goods.FULL_BODY_NIGHTY: Good.GoodType.FULL_BODY,
+	AllGoods.Goods.FULL_BODY_JUMPER: Good.GoodType.FULL_BODY,
 	
 	AllGoods.Goods.HAT_BASEBALL: Good.GoodType.HAT,
 	AllGoods.Goods.HAT_BEANIE: Good.GoodType.HAT,
@@ -104,21 +171,35 @@ extends Resource
 	AllGoods.Goods.HAT_SAILOR: Good.GoodType.HAT,
 	AllGoods.Goods.HAT_TOP_HAT: Good.GoodType.HAT,
 	AllGoods.Goods.HAT_VISOR: Good.GoodType.HAT,
+	AllGoods.Goods.HAT_HEADPHONES: Good.GoodType.HAT,
+	AllGoods.Goods.HAT_BOW: Good.GoodType.HAT,
 	
 	AllGoods.Goods.PANTS_BAGGY: Good.GoodType.PANTS,
 	AllGoods.Goods.PANTS_TWO_COLOR: Good.GoodType.PANTS,
 	AllGoods.Goods.PANTS_LOVE_JEANS: Good.GoodType.PANTS,
 	AllGoods.Goods.PANTS_NORM: Good.GoodType.PANTS,
+	AllGoods.Goods.PANTS_JEANS_SHORTS: Good.GoodType.PANTS,
+	AllGoods.Goods.PANTS_FLOWER: Good.GoodType.PANTS,
+	AllGoods.Goods.PANTS_LONG_SKIRT: Good.GoodType.PANTS,
+	AllGoods.Goods.PANTS_SHORT_SKIRT: Good.GoodType.PANTS,
+	AllGoods.Goods.PANTS_WORKOUT_BOTTOMS: Good.GoodType.PANTS,
 	
 	AllGoods.Goods.SHIRT_BLUE_WAVEY: Good.GoodType.SHIRT,
 	AllGoods.Goods.SHIRT_BUTTONUP: Good.GoodType.SHIRT,
 	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: Good.GoodType.SHIRT,
+	AllGoods.Goods.SHIRT_LEAF_SHIRT: Good.GoodType.SHIRT,
+	AllGoods.Goods.SHIRT_WAVEY_SHIRT: Good.GoodType.SHIRT,
+	AllGoods.Goods.SHIRT_SHORT_SWEATER: Good.GoodType.SHIRT,
+	AllGoods.Goods.SHIRT_PAJAMA_TOP: Good.GoodType.SHIRT,
+	AllGoods.Goods.SHIRT_CUFFED_SWEATER: Good.GoodType.SHIRT,
+	AllGoods.Goods.SHIRT_SUIT_TOP: Good.GoodType.SHIRT,
 	
 	AllGoods.Goods.TAIL_1: Good.GoodType.TAIL,
 	AllGoods.Goods.TAIL_2: Good.GoodType.TAIL,
 	AllGoods.Goods.TAIL_3: Good.GoodType.TAIL,
 	AllGoods.Goods.TAIL_4: Good.GoodType.TAIL,
-	AllGoods.Goods.TAIL_5: Good.GoodType.TAIL
+	AllGoods.Goods.TAIL_5: Good.GoodType.TAIL,
+	AllGoods.Goods.TAIL_6: Good.GoodType.TAIL
 }
 
 @export var attribute1List : Dictionary[AllGoods.Goods, Attribute.ATTRIBUTES] = {
@@ -126,14 +207,27 @@ extends Resource
 	AllGoods.Goods.ACCESSORY_SHADES: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.ACCESSORY_BOW_TIE: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.ACCESSORY_SCARF: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.FACE_HAPPY: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.FACE_KISSY: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.FACE_NEUTRAL: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.FACE_ZOINKED: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FACE_ALERT: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FACE_HEARTS: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FACE_BUCKTEETH: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FACE_NO_THOUGHTS: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FACE_SILLY: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FACE_XD: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.FULL_BODY_STAR_DRESS: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FULL_BODY_SHORT_DRESS: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FULL_BODY_SPORTS_OUTFIT: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FULL_BODY_GREEN_DRESS: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FULL_BODY_NIGHTY: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.FULL_BODY_JUMPER: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.HAT_BASEBALL: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.HAT_BEANIE: Attribute.ATTRIBUTES.WORK,
@@ -144,21 +238,35 @@ extends Resource
 	AllGoods.Goods.HAT_SAILOR: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.HAT_TOP_HAT: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.HAT_VISOR: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.HAT_HEADPHONES: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.HAT_BOW: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.PANTS_BAGGY: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.PANTS_TWO_COLOR: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.PANTS_LOVE_JEANS: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.PANTS_NORM: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.PANTS_JEANS_SHORTS: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.PANTS_FLOWER: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.PANTS_LONG_SKIRT: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.PANTS_SHORT_SKIRT: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.PANTS_WORKOUT_BOTTOMS: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.SHIRT_BLUE_WAVEY: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.SHIRT_BUTTONUP: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.SHIRT_LEAF_SHIRT: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.SHIRT_WAVEY_SHIRT: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.SHIRT_SHORT_SWEATER: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.SHIRT_PAJAMA_TOP: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.SHIRT_CUFFED_SWEATER: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.SHIRT_SUIT_TOP: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.TAIL_1: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.TAIL_2: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.TAIL_3: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.TAIL_4: Attribute.ATTRIBUTES.WORK,
-	AllGoods.Goods.TAIL_5: Attribute.ATTRIBUTES.WORK
+	AllGoods.Goods.TAIL_5: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.TAIL_6: Attribute.ATTRIBUTES.WORK
 }
 
 @export var priceList : Dictionary[AllGoods.Goods, int] = {
@@ -166,14 +274,27 @@ extends Resource
 	AllGoods.Goods.ACCESSORY_SHADES: 10,
 	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: 10,
 	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: 10,
+	AllGoods.Goods.ACCESSORY_BOW_TIE: 10,
+	AllGoods.Goods.ACCESSORY_SCARF: 10,
 	
 	AllGoods.Goods.FACE_HAPPY: 10,
 	AllGoods.Goods.FACE_KISSY: 10,
 	AllGoods.Goods.FACE_NEUTRAL: 10,
 	AllGoods.Goods.FACE_ZOINKED: 10,
+	AllGoods.Goods.FACE_ALERT: 10,
+	AllGoods.Goods.FACE_HEARTS: 10,
+	AllGoods.Goods.FACE_BUCKTEETH: 10,
+	AllGoods.Goods.FACE_NO_THOUGHTS: 10,
+	AllGoods.Goods.FACE_SILLY: 10,
+	AllGoods.Goods.FACE_XD: 10,
 	
 	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: 10,
 	AllGoods.Goods.FULL_BODY_STAR_DRESS: 10,
+	AllGoods.Goods.FULL_BODY_SHORT_DRESS: 10,
+	AllGoods.Goods.FULL_BODY_SPORTS_OUTFIT: 10,
+	AllGoods.Goods.FULL_BODY_GREEN_DRESS: 10,
+	AllGoods.Goods.FULL_BODY_NIGHTY: 10,
+	AllGoods.Goods.FULL_BODY_JUMPER: 10,
 	
 	AllGoods.Goods.HAT_BASEBALL: 10,
 	AllGoods.Goods.HAT_BEANIE: 10,
@@ -184,21 +305,35 @@ extends Resource
 	AllGoods.Goods.HAT_SAILOR: 10,
 	AllGoods.Goods.HAT_TOP_HAT: 10,
 	AllGoods.Goods.HAT_VISOR: 10,
+	AllGoods.Goods.HAT_HEADPHONES: 10,
+	AllGoods.Goods.HAT_BOW: 10,
 	
 	AllGoods.Goods.PANTS_BAGGY: 10,
 	AllGoods.Goods.PANTS_TWO_COLOR: 10,
 	AllGoods.Goods.PANTS_LOVE_JEANS: 10,
 	AllGoods.Goods.PANTS_NORM: 10,
+	AllGoods.Goods.PANTS_JEANS_SHORTS: 10,
+	AllGoods.Goods.PANTS_FLOWER: 10,
+	AllGoods.Goods.PANTS_LONG_SKIRT: 10,
+	AllGoods.Goods.PANTS_SHORT_SKIRT: 10,
+	AllGoods.Goods.PANTS_WORKOUT_BOTTOMS: 10,
 	
 	AllGoods.Goods.SHIRT_BLUE_WAVEY: 10,
 	AllGoods.Goods.SHIRT_BUTTONUP: 10,
 	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: 10,
+	AllGoods.Goods.SHIRT_LEAF_SHIRT: 10,
+	AllGoods.Goods.SHIRT_WAVEY_SHIRT: 10,
+	AllGoods.Goods.SHIRT_SHORT_SWEATER: 10,
+	AllGoods.Goods.SHIRT_PAJAMA_TOP: 10,
+	AllGoods.Goods.SHIRT_CUFFED_SWEATER: 10,
+	AllGoods.Goods.SHIRT_SUIT_TOP: 10,
 	
 	AllGoods.Goods.TAIL_1: 10,
 	AllGoods.Goods.TAIL_2: 10,
 	AllGoods.Goods.TAIL_3: 10,
 	AllGoods.Goods.TAIL_4: 10,
-	AllGoods.Goods.TAIL_5: 10
+	AllGoods.Goods.TAIL_5: 10,
+	AllGoods.Goods.TAIL_6: 10
 }
 
 @export var customizableList : Dictionary[AllGoods.Goods, bool] = {
@@ -206,14 +341,27 @@ extends Resource
 	AllGoods.Goods.ACCESSORY_SHADES: false,
 	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: false,
 	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: false,
+	AllGoods.Goods.ACCESSORY_BOW_TIE: true,
+	AllGoods.Goods.ACCESSORY_SCARF: true,
 	
 	AllGoods.Goods.FACE_HAPPY: false,
 	AllGoods.Goods.FACE_KISSY: false,
 	AllGoods.Goods.FACE_NEUTRAL: true,
 	AllGoods.Goods.FACE_ZOINKED: false,
+	AllGoods.Goods.FACE_ALERT: false,
+	AllGoods.Goods.FACE_HEARTS: true,
+	AllGoods.Goods.FACE_BUCKTEETH: false,
+	AllGoods.Goods.FACE_NO_THOUGHTS: false,
+	AllGoods.Goods.FACE_SILLY: false,
+	AllGoods.Goods.FACE_XD: false,
 	
 	AllGoods.Goods.FULL_BODY_ORANGE_OVERALLS: false,
 	AllGoods.Goods.FULL_BODY_STAR_DRESS: false,
+	AllGoods.Goods.FULL_BODY_SHORT_DRESS: true,
+	AllGoods.Goods.FULL_BODY_SPORTS_OUTFIT: false,
+	AllGoods.Goods.FULL_BODY_GREEN_DRESS: false,
+	AllGoods.Goods.FULL_BODY_NIGHTY: true,
+	AllGoods.Goods.FULL_BODY_JUMPER: true,
 	
 	AllGoods.Goods.HAT_BASEBALL: true,
 	AllGoods.Goods.HAT_BEANIE: true,
@@ -224,19 +372,33 @@ extends Resource
 	AllGoods.Goods.HAT_SAILOR: false,
 	AllGoods.Goods.HAT_TOP_HAT: true,
 	AllGoods.Goods.HAT_VISOR: true,
+	AllGoods.Goods.HAT_HEADPHONES: true,
+	AllGoods.Goods.HAT_BOW: true,
 	
 	AllGoods.Goods.PANTS_BAGGY: false,
 	AllGoods.Goods.PANTS_TWO_COLOR: false,
 	AllGoods.Goods.PANTS_LOVE_JEANS: false,
 	AllGoods.Goods.PANTS_NORM: true,
+	AllGoods.Goods.PANTS_JEANS_SHORTS: true,
+	AllGoods.Goods.PANTS_FLOWER: false,
+	AllGoods.Goods.PANTS_LONG_SKIRT: true,
+	AllGoods.Goods.PANTS_SHORT_SKIRT: true,
+	AllGoods.Goods.PANTS_WORKOUT_BOTTOMS: true,
 	
 	AllGoods.Goods.SHIRT_BLUE_WAVEY: false,
 	AllGoods.Goods.SHIRT_BUTTONUP: true,
 	AllGoods.Goods.SHIRT_CROP_TOP_GREEN: false,
+	AllGoods.Goods.SHIRT_LEAF_SHIRT: false,
+	AllGoods.Goods.SHIRT_WAVEY_SHIRT: true,
+	AllGoods.Goods.SHIRT_SHORT_SWEATER: false,
+	AllGoods.Goods.SHIRT_PAJAMA_TOP: true,
+	AllGoods.Goods.SHIRT_CUFFED_SWEATER: true,
+	AllGoods.Goods.SHIRT_SUIT_TOP: false,
 	
 	AllGoods.Goods.TAIL_1: true,
 	AllGoods.Goods.TAIL_2: true,
 	AllGoods.Goods.TAIL_3: true,
 	AllGoods.Goods.TAIL_4: true,
-	AllGoods.Goods.TAIL_5: true
+	AllGoods.Goods.TAIL_5: true,
+	AllGoods.Goods.TAIL_6: true
 }

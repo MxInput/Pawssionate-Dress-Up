@@ -48,7 +48,6 @@ texture = SubResource("CompressedTexture2D_cpdmu")
 
 [node name="Face_Color" type="Sprite2D" parent="Container/Character/Face" unique_id=555816485]
 visible = false
-self_modulate = Color(1, 0.3546866, 0.6125373, 1)
 z_index = 4
 texture = ExtResource("3_7idfb")
 
