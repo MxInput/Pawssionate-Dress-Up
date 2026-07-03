@@ -8,10 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bvic3e866xnow" path="res://images/dressing/fullBody/color/orange_overalls_color.png" id="6_q4jlo"]
 
 [node name="Cat_Model" type="TextureButton" unique_id=1454082787]
-offset_left = 759.0
-offset_top = 296.0
-offset_right = 939.0
-offset_bottom = 516.0
+offset_right = 180.0
+offset_bottom = 220.0
 size_flags_vertical = 3
 texture_normal = ExtResource("1_351e3")
 script = ExtResource("2_xl575")

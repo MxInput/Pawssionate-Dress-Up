@@ -3,6 +3,8 @@ extends TextureButton
 @export var homeList : ScrollContainer;
 @export var goodList : ScrollContainer;
 
+@export var backButton : TextureButton;
+
 @export var dressUpControl : Control;
 
 @export var color_picker : ColorPicker;
@@ -21,6 +23,8 @@ func closeAll() -> void:
 			control.visible = false;
 	
 func _on_button_down() -> void:
+	backButton.visible = true;
+	
 	section_title.visible = true;
 	section_title.text = name;
 	
@@ -37,6 +41,7 @@ func _on_button_down() -> void:
 			enableColor.emit(Good.GoodType.BODY);
 
 func _on_back_button_down() -> void:
+	backButton.visible = false;
 	section_title.visible = false;
 	
 	closeAll();

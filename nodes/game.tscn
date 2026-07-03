@@ -15,15 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://bajmm87u4vrqs" path="res://images/dressing/pants/colors/baggy_pants_color.png" id="10_i1818"]
 [ext_resource type="Texture2D" uid="uid://cyrcpgr8djp1f" path="res://images/dressing/hats/outlines/fez_outline.png" id="11_4axws"]
 [ext_resource type="Texture2D" uid="uid://b1gyixm342idt" path="res://images/dressing/pants/outlines/baggy_pants_outline.png" id="11_827r2"]
-[ext_resource type="Texture2D" uid="uid://ckpqljd5iei4x" path="res://images/exit_button.png" id="16_tvltm"]
+[ext_resource type="Texture2D" uid="uid://ckpqljd5iei4x" path="res://images/buttons/exit_button.png" id="16_tvltm"]
 [ext_resource type="FontFile" uid="uid://bafoxrel66eun" path="res://images/fonts/kleptocracy titling bd.otf" id="17_827r2"]
-[ext_resource type="Texture2D" uid="uid://bn1xwylx0qefa" path="res://images/good_button.png" id="17_engdv"]
+[ext_resource type="Texture2D" uid="uid://bn1xwylx0qefa" path="res://images/buttons/good_button.png" id="17_engdv"]
 [ext_resource type="FontFile" uid="uid://bukn66733hf54" path="res://images/fonts/Stylish Handwriting Free.ttf" id="17_rylax"]
 [ext_resource type="Script" uid="uid://pebf32n7qs7r" path="res://scripts/openSection.gd" id="18_h7es2"]
+[ext_resource type="Texture2D" uid="uid://dy6w617gmuakk" path="res://images/buttons/purple_button.png" id="18_rylax"]
 [ext_resource type="Script" uid="uid://fh48bhmfabn2" path="res://scripts/goodHandler.gd" id="19_s00i6"]
 [ext_resource type="Script" uid="uid://pmd3gpuiomdp" path="res://scripts/changeColor.gd" id="20_y7dl2"]
 [ext_resource type="Resource" uid="uid://oo0obbl0gxvf" path="res://resources/goodsContainer.tres" id="21_664bt"]
-[ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/forest_background.png" id="23_tvltm"]
+[ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/background/forest_background.png" id="23_tvltm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cpdmu"]
 load_path = "res://.godot/imported/base_cat_color.png-2e332628f5f8132a02c67e72ca92cad8.ctex"
@@ -147,6 +148,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Back" type="TextureButton" parent="Container/CanvasLayer/Dressup" unique_id=687352039]
+visible = false
 layout_mode = 0
 offset_left = 709.0
 offset_top = 191.0
@@ -190,13 +192,13 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 428.0
 offset_bottom = 72.0
-texture_normal = ExtResource("16_tvltm")
+texture_normal = ExtResource("18_rylax")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/SaveOpen" unique_id=1573095207]
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 64.0
-theme_override_colors/font_color = Color(0.9098039, 0.41568628, 0.4509804, 1)
+theme_override_colors/font_color = Color(0.44705883, 0.38039216, 0.54509807, 1)
 theme_override_fonts/font = ExtResource("17_rylax")
 theme_override_font_sizes/font_size = 16
 text = "OPEN SAVES"
@@ -323,12 +325,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Body" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "dressUpControl", "color_picker", "section_title")]
+[node name="Body" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "backButton", "dressUpControl", "color_picker", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 color_picker = NodePath("../../../ColorPicker")
 section_title = NodePath("../../../Section")
@@ -343,13 +346,14 @@ text = "BODY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Accessory" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Accessory" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Accessory")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
@@ -363,13 +367,14 @@ text = "ACCESSORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Face" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Face" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Face")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
@@ -383,13 +388,14 @@ text = "FACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FullBody" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="FullBody" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Full_Body")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
@@ -403,13 +409,14 @@ text = "FULL BODY CLOTHES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hat" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Hat" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Hat")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
@@ -423,13 +430,14 @@ text = "HATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pants" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Pants" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Pants")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
@@ -443,13 +451,14 @@ text = "PANTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Shirt" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Shirt" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Shirt")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 
@@ -463,13 +472,14 @@ text = "SHIRTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tail" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "dressUpControl", "section_title")]
+[node name="Tail" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
 script = ExtResource("18_h7es2")
 homeList = NodePath("../..")
 goodList = NodePath("../../../Tail")
+backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
 

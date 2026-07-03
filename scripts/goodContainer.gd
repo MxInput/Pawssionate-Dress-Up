@@ -3,6 +3,9 @@ extends Resource
 
 @export var outlineList : Dictionary[AllGoods.Goods, Texture2D] = {
 	AllGoods.Goods.ACCESSORY_TIE: preload("res://images/dressing/accessories/outlines/tie_outline.png"),
+	AllGoods.Goods.ACCESSORY_SHADES: preload("res://images/dressing/accessories/outlines/shades_outline.png"),
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: preload("res://images/dressing/accessories/outlines/circle_glasses_outline.png"),
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: preload("res://images/dressing/accessories/outlines/square_glasses_outline.png"),
 	
 	AllGoods.Goods.FACE_HAPPY: preload("res://images/dressing/faces/full/happy.png"),
 	AllGoods.Goods.FACE_KISSY: preload("res://images/dressing/faces/full/kissy.png"),
@@ -40,6 +43,9 @@ extends Resource
 
 @export var colorList : Dictionary[AllGoods.Goods, Texture2D] = {
 	AllGoods.Goods.ACCESSORY_TIE: preload("res://images/dressing/accessories/colors/tie_color.png"),
+	AllGoods.Goods.ACCESSORY_SHADES: preload("res://images/dressing/accessories/colors/shades_color.png"),
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: null,
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: null,
 	
 	AllGoods.Goods.FACE_HAPPY: null,
 	AllGoods.Goods.FACE_KISSY: null,
@@ -77,6 +83,9 @@ extends Resource
 
 @export var typeList : Dictionary[AllGoods.Goods, Good.GoodType] = {
 	AllGoods.Goods.ACCESSORY_TIE: Good.GoodType.ACCESSORY,
+	AllGoods.Goods.ACCESSORY_SHADES: Good.GoodType.ACCESSORY,
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: Good.GoodType.ACCESSORY,
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: Good.GoodType.ACCESSORY,
 	
 	AllGoods.Goods.FACE_HAPPY: Good.GoodType.FACE,
 	AllGoods.Goods.FACE_KISSY: Good.GoodType.FACE,
@@ -114,6 +123,9 @@ extends Resource
 
 @export var attribute1List : Dictionary[AllGoods.Goods, Attribute.ATTRIBUTES] = {
 	AllGoods.Goods.ACCESSORY_TIE: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.ACCESSORY_SHADES: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: Attribute.ATTRIBUTES.WORK,
 	
 	AllGoods.Goods.FACE_HAPPY: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.FACE_KISSY: Attribute.ATTRIBUTES.WORK,
@@ -151,6 +163,9 @@ extends Resource
 
 @export var priceList : Dictionary[AllGoods.Goods, int] = {
 	AllGoods.Goods.ACCESSORY_TIE: 10,
+	AllGoods.Goods.ACCESSORY_SHADES: 10,
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: 10,
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: 10,
 	
 	AllGoods.Goods.FACE_HAPPY: 10,
 	AllGoods.Goods.FACE_KISSY: 10,
@@ -188,6 +203,9 @@ extends Resource
 
 @export var customizableList : Dictionary[AllGoods.Goods, bool] = {
 	AllGoods.Goods.ACCESSORY_TIE: true,
+	AllGoods.Goods.ACCESSORY_SHADES: false,
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: false,
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: false,
 	
 	AllGoods.Goods.FACE_HAPPY: false,
 	AllGoods.Goods.FACE_KISSY: false,

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxpcb5se8560f"
-path="res://.godot/imported/forest_background.png-6ddb3f6e01b918f2cc48f8face145131.ctex"
+uid="uid://do2egff31vrxs"
+path="res://.godot/imported/shades_color.png-86beff7b3e6122e845a26cd298e68490.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/forest_background.png"
-dest_files=["res://.godot/imported/forest_background.png-6ddb3f6e01b918f2cc48f8face145131.ctex"]
+source_file="res://images/dressing/accessories/colors/shades_color.png"
+dest_files=["res://.godot/imported/shades_color.png-86beff7b3e6122e845a26cd298e68490.ctex"]
 
 [params]
 

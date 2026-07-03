@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://by5oj8o1ucsgb" path="res://scripts/savesHandler.gd" id="1_4cdi3"]
 [ext_resource type="Texture2D" uid="uid://um7yhxbk0vie" path="res://images/dressing/base/base_cat.png" id="1_8hk77"]
-[ext_resource type="Texture2D" uid="uid://ckpqljd5iei4x" path="res://images/exit_button.png" id="16_ytgpc"]
+[ext_resource type="Texture2D" uid="uid://ckpqljd5iei4x" path="res://images/buttons/exit_button.png" id="16_ytgpc"]
 [ext_resource type="FontFile" uid="uid://bukn66733hf54" path="res://images/fonts/Stylish Handwriting Free.ttf" id="18_smted"]
 [ext_resource type="FontFile" uid="uid://bafoxrel66eun" path="res://images/fonts/kleptocracy titling bd.otf" id="19_7ifrw"]
-[ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/forest_background.png" id="21_jd56e"]
+[ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/background/forest_background.png" id="21_jd56e"]
 
 [node name="Saves" type="Node" unique_id=1722623650 node_paths=PackedStringArray("char_pos", "container")]
 script = ExtResource("1_4cdi3")
@@ -71,6 +71,18 @@ theme_override_font_sizes/font_size = 16
 text = "GO BACK"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SavedOutfits" type="ScrollContainer" parent="CanvasLayer/Dressup" unique_id=161527978]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Dressup/SavedOutfits" unique_id=353013851]
+layout_mode = 2
+columns = 2
+
+[node name="SavedOutfit" type="Control" parent="CanvasLayer/Dressup/SavedOutfits/GridContainer" unique_id=44228325]
+layout_mode = 2
 
 [node name="Background" type="Sprite2D" parent="." unique_id=383668939]
 position = Vector2(12.625007, -3.7500162)

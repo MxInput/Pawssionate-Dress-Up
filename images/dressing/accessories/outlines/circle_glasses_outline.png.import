@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7oxo5d0c2i6"
-path="res://.godot/imported/round_long_button.png-c5bdc06d6dabef1500a62237acdf8764.ctex"
+uid="uid://cmv85wkfxf7ds"
+path="res://.godot/imported/circle_glasses_outline.png-354d018261e87087604ed76ce74e5e5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/round_long_button.png"
-dest_files=["res://.godot/imported/round_long_button.png-c5bdc06d6dabef1500a62237acdf8764.ctex"]
+source_file="res://images/dressing/accessories/outlines/circle_glasses_outline.png"
+dest_files=["res://.godot/imported/circle_glasses_outline.png-354d018261e87087604ed76ce74e5e5a.ctex"]
 
 [params]
 
