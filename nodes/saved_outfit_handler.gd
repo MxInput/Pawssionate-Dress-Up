@@ -27,15 +27,20 @@ func _on_load_button_down() -> void:
 	var player_cat = save_handler.player_cat;
 	
 	var game_container = game_handler.get_child(0);
+	var good_handler = game_handler.find_child("GoodHandler");
 	var home_cat = game_container.find_child("Character");
 	
 	player_cat.find_child("Body_Color", true, false).modulate = complete_model.body_color;
 	home_cat.find_child("Body_Color", true, false).modulate = complete_model.body_color;
-		
+
 	if (complete_model.accessory[0] == null && complete_model.accessory[1] == null):
 		player_cat.find_child("Accessory", true, false).visible = false;
 		home_cat.find_child("Accessory", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.ACCESSORY);
 	elif (complete_model.accessory[0] == null):
+		good_handler.sparkle_option_texture(complete_model.accessory[1], Good.GoodType.ACCESSORY);
+
 		player_cat.find_child("Accessory", true, false).visible = true;
 		home_cat.find_child("Accessory", true, false).visible = true;
 		
@@ -47,6 +52,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Accessory", true, false).get_child(1).visible = true;
 		home_cat.find_child("Accessory", true, false).get_child(1).texture = complete_model.accessory[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.accessory[1], Good.GoodType.ACCESSORY);
 		player_cat.find_child("Accessory", true, false).visible = true;
 		home_cat.find_child("Accessory", true, false).visible = true;
 		
@@ -70,7 +76,10 @@ func _on_load_button_down() -> void:
 	if (complete_model.face[0] == null && complete_model.face[1] == null):
 		player_cat.find_child("Face", true, false).visible = false;
 		home_cat.find_child("Face", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.FACE);
 	elif (complete_model.face[0] == null):
+		good_handler.sparkle_option_texture(complete_model.face[1], Good.GoodType.FACE);
 		player_cat.find_child("Face", true, false).visible = true;
 		home_cat.find_child("Face", true, false).visible = true;
 		
@@ -82,6 +91,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Face", true, false).get_child(1).visible = true;
 		home_cat.find_child("Face", true, false).get_child(1).texture = complete_model.face[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.face[1], Good.GoodType.FACE);
 		player_cat.find_child("Face", true, false).visible = true;
 		home_cat.find_child("Face", true, false).visible = true;
 		
@@ -105,7 +115,10 @@ func _on_load_button_down() -> void:
 	if (complete_model.full_body[0] == null && complete_model.full_body[1] == null):
 		player_cat.find_child("FullBody", true, false).visible = false;
 		home_cat.find_child("FullBody", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.FULL_BODY);
 	elif (complete_model.full_body[0] == null):
+		good_handler.sparkle_option_texture(complete_model.full_body[1], Good.GoodType.FULL_BODY);
 		player_cat.find_child("FullBody", true, false).visible = true;
 		home_cat.find_child("FullBody", true, false).visible = true;
 		
@@ -117,6 +130,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("FullBody", true, false).get_child(1).visible = true;
 		home_cat.find_child("FullBody", true, false).get_child(1).texture = complete_model.full_body[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.full_body[1], Good.GoodType.FULL_BODY);
 		player_cat.find_child("FullBody", true, false).visible = true;
 		home_cat.find_child("FullBody", true, false).visible = true;
 		
@@ -140,7 +154,10 @@ func _on_load_button_down() -> void:
 	if (complete_model.hat[0] == null && complete_model.hat[1] == null):
 		player_cat.find_child("Hat", true, false).visible = false;
 		home_cat.find_child("Hat", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.HAT);
 	elif (complete_model.hat[0] == null):
+		good_handler.sparkle_option_texture(complete_model.hat[1], Good.GoodType.HAT);
 		player_cat.find_child("Hat", true, false).visible = true;
 		home_cat.find_child("Hat", true, false).visible = true;
 		
@@ -152,6 +169,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Hat", true, false).get_child(1).visible = true;
 		home_cat.find_child("Hat", true, false).get_child(1).texture = complete_model.hat[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.hat[1], Good.GoodType.HAT);
 		player_cat.find_child("Hat", true, false).visible = true;
 		home_cat.find_child("Hat", true, false).visible = true;
 		
@@ -175,7 +193,10 @@ func _on_load_button_down() -> void:
 	if (complete_model.shirt[0] == null && complete_model.shirt[1] == null):
 		player_cat.find_child("Shirt", true, false).visible = false;
 		home_cat.find_child("Shirt", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.SHIRT);
 	elif (complete_model.shirt[0] == null):
+		good_handler.sparkle_option_texture(complete_model.shirt[1], Good.GoodType.SHIRT);
 		player_cat.find_child("Shirt", true, false).visible = true;
 		home_cat.find_child("Shirt", true, false).visible = true;
 		
@@ -187,6 +208,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Shirt", true, false).get_child(1).visible = true;
 		home_cat.find_child("Shirt", true, false).get_child(1).texture = complete_model.shirt[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.shirt[1], Good.GoodType.SHIRT);
 		player_cat.find_child("Shirt", true, false).visible = true;
 		home_cat.find_child("Shirt", true, false).visible = true;
 		
@@ -210,7 +232,10 @@ func _on_load_button_down() -> void:
 	if (complete_model.pants[0] == null && complete_model.pants[1] == null):
 		player_cat.find_child("Pants", true, false).visible = false;
 		home_cat.find_child("Pants", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.PANTS);
 	elif (complete_model.pants[0] == null):
+		good_handler.sparkle_option_texture(complete_model.pants[1], Good.GoodType.PANTS);
 		player_cat.find_child("Pants", true, false).visible = true;
 		home_cat.find_child("Pants", true, false).visible = true;
 		
@@ -222,6 +247,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Pants", true, false).get_child(1).visible = true;
 		home_cat.find_child("Pants", true, false).get_child(1).texture = complete_model.pants[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.pants[1], Good.GoodType.PANTS);
 		player_cat.find_child("Pants", true, false).visible = true;
 		home_cat.find_child("Pants", true, false).visible = true;
 		
@@ -245,7 +271,10 @@ func _on_load_button_down() -> void:
 	if (complete_model.tail[0] == null && complete_model.tail[1] == null):
 		player_cat.find_child("Tail", true, false).visible = false;
 		home_cat.find_child("Tail", true, false).visible = false;
+		
+		good_handler.unsparkle_all(Good.GoodType.TAIL);
 	elif (complete_model.tail[0] == null):
+		good_handler.sparkle_option_texture(complete_model.tail[1], Good.GoodType.TAIL);
 		player_cat.find_child("Tail", true, false).visible = true;
 		home_cat.find_child("Tail", true, false).visible = true;
 		
@@ -257,6 +286,7 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Tail", true, false).get_child(1).visible = true;
 		home_cat.find_child("Tail", true, false).get_child(1).texture = complete_model.tail[1];
 	else:
+		good_handler.sparkle_option_texture(complete_model.tail[1], Good.GoodType.TAIL);
 		player_cat.find_child("Tail", true, false).visible = true;
 		home_cat.find_child("Tail", true, false).visible = true;
 		

@@ -25,6 +25,8 @@
 [ext_resource type="Script" uid="uid://pmd3gpuiomdp" path="res://scripts/changeColor.gd" id="20_y7dl2"]
 [ext_resource type="Resource" uid="uid://oo0obbl0gxvf" path="res://resources/goodsContainer.tres" id="21_664bt"]
 [ext_resource type="Texture2D" uid="uid://cxpcb5se8560f" path="res://images/background/forest_background.png" id="23_tvltm"]
+[ext_resource type="Script" uid="uid://dfwbhv62xsgsd" path="res://nodes/disappearText.gd" id="23_urx1x"]
+[ext_resource type="Script" uid="uid://duwei3dvii08e" path="res://nodes/screenshot_handler.gd" id="26_3huci"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cpdmu"]
 load_path = "res://.godot/imported/base_cat_color.png-2e332628f5f8132a02c67e72ca92cad8.ctex"
@@ -39,12 +41,12 @@ position = Vector2(-291, 78)
 texture = ExtResource("1_g5j3c")
 
 [node name="Body_Color" type="Sprite2D" parent="Container/Character" unique_id=2138130443]
-modulate = Color(0, 0.5792901, 0.9985325, 1)
 z_index = 2
 position = Vector2(0, -0.4999981)
 texture = SubResource("CompressedTexture2D_cpdmu")
 
 [node name="Face" type="Node2D" parent="Container/Character" unique_id=2122355316]
+visible = false
 
 [node name="Face_Color" type="Sprite2D" parent="Container/Character/Face" unique_id=555816485]
 visible = false
@@ -201,6 +203,25 @@ theme_override_colors/font_color = Color(0.44705883, 0.38039216, 0.54509807, 1)
 theme_override_fonts/font = ExtResource("17_rylax")
 theme_override_font_sizes/font_size = 16
 text = "OPEN SAVES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Screenshot" type="TextureButton" parent="Container/CanvasLayer/Dressup" unique_id=757074684]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 78.0
+offset_right = 428.0
+offset_bottom = 142.0
+texture_normal = ExtResource("18_rylax")
+
+[node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/Screenshot" unique_id=1816746953]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.44705883, 0.38039216, 0.54509807, 1)
+theme_override_fonts/font = ExtResource("17_rylax")
+theme_override_font_sizes/font_size = 16
+text = "TAKE PHOTO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -532,6 +553,18 @@ presets_visible = false
 script = ExtResource("20_y7dl2")
 player_cat = NodePath("../../../Character")
 
+[node name="ScreenshotInfo" type="Label" parent="Container/CanvasLayer/Dressup" unique_id=842845639]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 149.0
+offset_right = 144.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("17_rylax")
+theme_override_font_sizes/font_size = 14
+text = "Saved to thisismylink"
+script = ExtResource("23_urx1x")
+
 [node name="GoodHandler" type="Node" parent="Container" unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container", "player_cat", "color_picker", "section_title")]
 script = ExtResource("19_s00i6")
 goodsContainer = ExtResource("21_664bt")
@@ -551,9 +584,15 @@ position = Vector2(12.625006, 0.24998379)
 scale = Vector2(0.6360677, 0.599537)
 texture = ExtResource("23_tvltm")
 
+[node name="ScreenshotHandler" type="Node" parent="Container" unique_id=1608142870 node_paths=PackedStringArray("dressup_control", "screenshot_info")]
+script = ExtResource("26_3huci")
+dressup_control = NodePath("../CanvasLayer/Dressup")
+screenshot_info = NodePath("../CanvasLayer/Dressup/ScreenshotInfo")
+
 [connection signal="button_down" from="Container/CanvasLayer/Dressup/Back" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_back_button_down"]
 [connection signal="button_down" from="Container/CanvasLayer/Dressup/Randomize" to="Container/GoodHandler" method="_on_randomize_button_down"]
 [connection signal="button_down" from="Container/CanvasLayer/Dressup/SaveOpen" to="Container/GoodHandler" method="_on_save_open_button_down"]
+[connection signal="button_down" from="Container/CanvasLayer/Dressup/Screenshot" to="Container/ScreenshotHandler" method="_on_screenshot_button_down"]
 [connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" method="_on_button_down"]
 [connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Accessory" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Accessory" method="_on_button_down"]
 [connection signal="button_down" from="Container/CanvasLayer/Dressup/List/VBoxContainer/Face" to="Container/CanvasLayer/Dressup/List/VBoxContainer/Face" method="_on_button_down"]

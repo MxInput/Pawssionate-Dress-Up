@@ -265,6 +265,51 @@ func sparkle_option(selected_good : Good) -> void:
 					clothes_option.sparkle();
 				elif (clothes_option.is_sparkling):
 					clothes_option.stop_sparkling();
+					
+func sparkle_option_texture(selected_outline : Texture2D, good_type : Good.GoodType) -> void:
+	match (good_type):
+		Good.GoodType.ACCESSORY:		
+			for clothes_option in accessory_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.FACE:	
+			for clothes_option in face_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.FULL_BODY:
+			for clothes_option in full_body_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.HAT:
+			for clothes_option in hat_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.PANTS:
+			for clothes_option in pants_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.SHIRT:
+			for clothes_option in shirt_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.TAIL:
+			for clothes_option in tail_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
 
 func unsparkle_all(selected_good_type : Good.GoodType) -> void:
 	match (selected_good_type):
@@ -463,12 +508,12 @@ func _on_randomize_button_down() -> void:
 					shirt.get_child(0).texture = new_shirt.good.color;
 				else:
 					shirt.get_child(0).visible = false;
-						
-					if (new_shirt.good.customizable):						
-						var rand_shirt_color := get_random_color();
-						shirt.get_child(0).modulate = rand_shirt_color;
-					else:
-						shirt.get_child(0).modulate = Color.WHITE;
+	
+				if (new_shirt.good.customizable):			
+					var rand_shirt_color := get_random_color();
+					shirt.get_child(0).modulate = rand_shirt_color;
+				else:
+					shirt.get_child(0).modulate = Color.WHITE;
 			else:
 				unsparkle_all(Good.GoodType.SHIRT);
 				shirt.visible = false;
