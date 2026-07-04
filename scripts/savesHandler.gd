@@ -17,6 +17,7 @@ signal finished;
 func _ready() -> void:
 	if ResourceLoader.exists(SAVE_PATH):
 		save_game = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
+		load_saved_outfits();
 	else:
 		save_game = AllModels.new();
 	
@@ -32,6 +33,120 @@ func load_cat(cat : Sprite2D) -> void:
 	
 	player_cat = created_cat;
 	
+func load_saved_outfits() -> void:
+	for saved_outfit in save_game.models:
+		var new_model_display = complete_temp.instantiate();
+		new_model_display.complete_model = saved_outfit;
+		saves_container.add_child(new_model_display);
+
+		new_model_display.get_child(0).get_child(0).find_child("Body_Color").modulate = saved_outfit.body_color;
+		
+		if (saved_outfit.accessory[0] == null && saved_outfit.accessory[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").visible = false;
+		elif (saved_outfit.accessory[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").texture = saved_outfit.accessory[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").get_child(0).texture = saved_outfit.accessory[0];
+			new_model_display.get_child(0).get_child(0).find_child("Accessory").texture = saved_outfit.accessory[1];
+			
+			if (saved_outfit.accessory_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("Accessory").get_child(0).modulate = saved_outfit.accessory_color;
+				
+		if (saved_outfit.face[0] == null && saved_outfit.face[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Face").visible = false;
+		elif (saved_outfit.face[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Face").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("Face").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Face").texture = saved_outfit.face[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("Face").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Face").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Face").get_child(0).texture = saved_outfit.face[0];
+			new_model_display.get_child(0).get_child(0).find_child("Face").texture = saved_outfit.face[1];
+			
+			if (saved_outfit.face_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("Face").get_child(0).modulate = saved_outfit.face_color;
+				
+		if (saved_outfit.full_body[0] == null && saved_outfit.full_body[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").visible = false;
+		elif (saved_outfit.full_body[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").texture = saved_outfit.full_body[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").get_child(0).texture = saved_outfit.full_body[0];
+			new_model_display.get_child(0).get_child(0).find_child("FullBody").texture = saved_outfit.full_body[1];
+			
+			if (saved_outfit.full_body_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("FullBody").get_child(0).modulate = saved_outfit.full_body_color;
+		
+		if (saved_outfit.hat[0] == null && saved_outfit.hat[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Hat").visible = false;
+		elif (saved_outfit.hat[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Hat").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("Hat").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Hat").texture = saved_outfit.hat[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("Hat").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Hat").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Hat").get_child(0).texture = saved_outfit.hat[0];
+			new_model_display.get_child(0).get_child(0).find_child("Hat").texture = saved_outfit.hat[1];
+			
+			if (saved_outfit.hat_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("Hat").get_child(0).modulate = saved_outfit.hat_color;
+		
+		if (saved_outfit.shirt[0] == null && saved_outfit.shirt[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").visible = false;
+		elif (saved_outfit.shirt[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").texture = saved_outfit.shirt[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").get_child(0).texture = saved_outfit.shirt[0];
+			new_model_display.get_child(0).get_child(0).find_child("Shirt").texture = saved_outfit.shirt[1];
+			
+			if (saved_outfit.shirt_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("Shirt").get_child(0).modulate = saved_outfit.shirt_color;
+		
+		if (saved_outfit.pants[0] == null && saved_outfit.pants[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Pants").visible = false;
+		elif (saved_outfit.pants[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Pants").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("Pants").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Pants").texture = saved_outfit.pants[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("Pants").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Pants").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Pants").get_child(0).texture = saved_outfit.pants[0];
+			new_model_display.get_child(0).get_child(0).find_child("Pants").texture = saved_outfit.pants[1];
+			
+			if (saved_outfit.pants_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("Pants").get_child(0).modulate = saved_outfit.pants_color;
+		
+		if (saved_outfit.tail[0] == null && saved_outfit.tail[1] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Tail").visible = false;
+		elif (saved_outfit.tail[0] == null):
+			new_model_display.get_child(0).get_child(0).find_child("Tail").get_child(0).visible = false;
+			new_model_display.get_child(0).get_child(0).find_child("Tail").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Tail").texture = saved_outfit.tail[1];
+		else:
+			new_model_display.get_child(0).get_child(0).find_child("Tail").get_child(0).visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Tail").visible = true;
+			new_model_display.get_child(0).get_child(0).find_child("Tail").get_child(0).texture = saved_outfit.tail[0];
+			new_model_display.get_child(0).get_child(0).find_child("Tail").texture = saved_outfit.tail[1];
+			
+			if (saved_outfit.tail_color != Color.WHITE):
+				new_model_display.get_child(0).get_child(0).find_child("Tail").get_child(0).modulate = saved_outfit.tail_color;	
+		
+		
 func _on_save_button_down() -> void:
 	var body_color : Color = player_cat.get_child(0).modulate;
 
