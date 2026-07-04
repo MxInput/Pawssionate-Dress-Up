@@ -3,9 +3,32 @@
 [ext_resource type="Texture2D" uid="uid://ctvob4dg04peu" path="res://images/costume_back.png" id="1_351e3"]
 [ext_resource type="Script" uid="uid://cfyocfa3m3sbr" path="res://scripts/good_model.gd" id="2_xl575"]
 [ext_resource type="Texture2D" uid="uid://um7yhxbk0vie" path="res://images/dressing/base/base_cat.png" id="3_t4xvq"]
+[ext_resource type="Texture2D" uid="uid://dgxga086dgty5" path="res://images/sparkle_animation.png" id="3_xl575"]
 [ext_resource type="Texture2D" uid="uid://disp7dvoy5v4f" path="res://images/dressing/base/base_cat_color.png" id="4_cbeoi"]
 [ext_resource type="Texture2D" uid="uid://oce2wr75e46a" path="res://images/dressing/fullBody/outline/orange_overalls_outline.png" id="5_whhc7"]
 [ext_resource type="Texture2D" uid="uid://bvic3e866xnow" path="res://images/dressing/fullBody/color/orange_overalls_color.png" id="6_q4jlo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4xvq"]
+atlas = ExtResource("3_xl575")
+region = Rect2(0, 0, 180, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbeoi"]
+atlas = ExtResource("3_xl575")
+region = Rect2(180, 0, 180, 220)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whhc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4xvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbeoi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Cat_Model" type="TextureButton" unique_id=1454082787]
 offset_right = 180.0
@@ -50,5 +73,14 @@ offset_bottom = 200.0
 texture = ExtResource("6_q4jlo")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Sparkles" type="AnimatedSprite2D" parent="." unique_id=1339190533]
+visible = false
+z_index = 20
+position = Vector2(88.5, 110.5)
+scale = Vector2(1.0944444, 1.15)
+sprite_frames = SubResource("SpriteFrames_whhc7")
+autoplay = "default"
+frame_progress = 0.97481894
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

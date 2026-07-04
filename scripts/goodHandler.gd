@@ -220,7 +220,83 @@ func get_random_color() -> Color:
 		randf(),
 		randf()
 	)
-	
+
+func sparkle_option(selected_good : Good) -> void:
+	match (selected_good.good_type):
+		Good.GoodType.ACCESSORY:		
+			for clothes_option in accessory_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.FACE:	
+			for clothes_option in face_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.FULL_BODY:
+			for clothes_option in full_body_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.HAT:
+			for clothes_option in hat_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.PANTS:
+			for clothes_option in pants_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.SHIRT:
+			for clothes_option in shirt_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.TAIL:
+			for clothes_option in tail_container.get_child(0).get_children():
+				if (clothes_option.get_child(0).find_child("Thing_Outline").texture == selected_good.outline):
+					clothes_option.sparkle();
+				elif (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+
+func unsparkle_all(selected_good_type : Good.GoodType) -> void:
+	match (selected_good_type):
+		Good.GoodType.ACCESSORY:		
+			for clothes_option in accessory_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.FACE:	
+			for clothes_option in face_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.FULL_BODY:
+			for clothes_option in full_body_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.HAT:
+			for clothes_option in hat_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.PANTS:
+			for clothes_option in pants_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.SHIRT:
+			for clothes_option in shirt_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+		Good.GoodType.TAIL:
+			for clothes_option in tail_container.get_child(0).get_children():
+				if (clothes_option.is_sparkling):
+					clothes_option.stop_sparkling();
+										
 func _on_randomize_button_down() -> void:
 	if (!section_title.visible):
 		var rand_color := get_random_color();
@@ -238,6 +314,8 @@ func _on_randomize_button_down() -> void:
 					
 			accessory.get_child(1).texture = new_accessory.good.outline;
 					
+			sparkle_option(new_accessory.good);
+			
 			if (new_accessory.good.color != null):
 				accessory.get_child(0).visible = true;
 				accessory.get_child(0).texture = new_accessory.good.color;
@@ -251,6 +329,7 @@ func _on_randomize_button_down() -> void:
 				accessory.get_child(0).modulate = Color.WHITE;
 		else:
 			accessory.visible = false;
+			unsparkle_all(Good.GoodType.ACCESSORY);
 
 		var face = player_cat.find_child("Face");
 		var faces := face_container.get_child(0).get_children();
@@ -264,6 +343,8 @@ func _on_randomize_button_down() -> void:
 					
 			face.get_child(1).texture = new_face.good.outline;
 					
+			sparkle_option(new_face.good);
+			
 			if (new_face.good.color != null):
 				face.get_child(0).visible = true;
 				face.get_child(0).texture = new_face.good.color;
@@ -277,6 +358,7 @@ func _on_randomize_button_down() -> void:
 				face.get_child(0).modulate = Color.WHITE;
 		else:
 			face.visible = false;
+			unsparkle_all(Good.GoodType.FACE);
 			
 		var clothes_type_chance = randi_range(0, 1);
 		
@@ -296,6 +378,8 @@ func _on_randomize_button_down() -> void:
 					var new_full_body = full_bodies.pick_random();
 					
 					full_body.get_child(1).texture = new_full_body.good.outline;
+					
+					sparkle_option(new_full_body.good);
 					
 					if (shirt.visible):
 						shirt.visible = false;
@@ -319,6 +403,8 @@ func _on_randomize_button_down() -> void:
 					pants.visible = false;
 					
 					full_body.visible = false;
+					unsparkle_all(Good.GoodType.FULL_BODY);
+					
 		else:
 			var full_body = player_cat.find_child("FullBody");
 
@@ -334,6 +420,8 @@ func _on_randomize_button_down() -> void:
 				var new_pants = all_pants.pick_random();
 					
 				pants.get_child(1).texture = new_pants.good.outline;
+					
+				sparkle_option(new_pants.good);
 						
 				if (full_body.visible):
 					full_body.visible = false;
@@ -350,6 +438,7 @@ func _on_randomize_button_down() -> void:
 				else:
 					pants.get_child(0).modulate = Color.WHITE;
 			else:
+					unsparkle_all(Good.GoodType.PANTS);
 					pants.visible = false;
 					
 					full_body.visible = false;
@@ -366,7 +455,9 @@ func _on_randomize_button_down() -> void:
 				var new_shirt = all_shirts.pick_random();
 					
 				shirt.get_child(1).texture = new_shirt.good.outline;
-						
+					
+				sparkle_option(new_shirt.good);
+					
 				if (new_shirt.good.color != null):
 					shirt.get_child(0).visible = true;
 					shirt.get_child(0).texture = new_shirt.good.color;
@@ -379,6 +470,7 @@ func _on_randomize_button_down() -> void:
 					else:
 						shirt.get_child(0).modulate = Color.WHITE;
 			else:
+				unsparkle_all(Good.GoodType.SHIRT);
 				shirt.visible = false;
 				
 		var hat = player_cat.find_child("Hat");
@@ -393,6 +485,8 @@ func _on_randomize_button_down() -> void:
 					
 			hat.get_child(1).texture = new_hat.good.outline;
 					
+			sparkle_option(new_hat.good);
+			
 			if (new_hat.good.color != null):
 				hat.get_child(0).visible = true;
 				hat.get_child(0).texture = new_hat.good.color;
@@ -405,6 +499,7 @@ func _on_randomize_button_down() -> void:
 			else:
 				hat.get_child(0).modulate = Color.WHITE;
 		else:
+			unsparkle_all(Good.GoodType.HAT);
 			hat.visible = false;
 
 		var tail = player_cat.find_child("Tail");
@@ -419,6 +514,8 @@ func _on_randomize_button_down() -> void:
 					
 			tail.get_child(1).texture = new_tail.good.outline;
 					
+			sparkle_option(new_tail.good);
+			
 			if (new_tail.good.color != null):
 				tail.get_child(0).visible = true;
 				tail.get_child(0).texture = new_tail.good.color;
@@ -432,6 +529,7 @@ func _on_randomize_button_down() -> void:
 				tail.get_child(0).modulate = Color.WHITE;
 		else:
 			tail.visible = false;
+			unsparkle_all(Good.GoodType.TAIL);
 	else:
 		match (section_title.text):
 			"Body":
@@ -451,6 +549,8 @@ func _on_randomize_button_down() -> void:
 					
 					accessory.get_child(1).texture = new_accessory.good.outline;
 					
+					sparkle_option(new_accessory.good);
+					
 					if (new_accessory.good.color != null):
 						accessory.get_child(0).visible = true;
 						accessory.get_child(0).texture = new_accessory.good.color;
@@ -467,6 +567,8 @@ func _on_randomize_button_down() -> void:
 						color_picker.visible = false;
 						accessory.get_child(0).modulate = Color.WHITE;
 				else:
+					unsparkle_all(Good.GoodType.ACCESSORY);
+					
 					accessory.visible = false;
 					color_picker.visible = false;
 					
@@ -482,6 +584,8 @@ func _on_randomize_button_down() -> void:
 					var new_face = faces.pick_random();
 					
 					face.get_child(1).texture = new_face.good.outline;
+					
+					sparkle_option(new_face.good);
 					
 					if (new_face.good.color != null):
 						face.get_child(0).visible = true;
@@ -499,6 +603,8 @@ func _on_randomize_button_down() -> void:
 						color_picker.visible = false;
 						face.get_child(0).modulate = Color.WHITE;
 				else:
+					unsparkle_all(Good.GoodType.FACE);
+					
 					face.visible = false;
 					color_picker.visible = false;
 			"Full Body Clothes":
@@ -509,7 +615,6 @@ func _on_randomize_button_down() -> void:
 				
 				var full_bodies := full_body_container.get_child(0).get_children();
 				
-				
 				var chance = randi_range(0, full_bodies.size());
 				
 				if (chance != 0):	
@@ -518,6 +623,8 @@ func _on_randomize_button_down() -> void:
 					var new_full_body = full_bodies.pick_random();
 					
 					full_body.get_child(1).texture = new_full_body.good.outline;
+					
+					sparkle_option(new_full_body.good);
 					
 					if (shirt.visible):
 						shirt.visible = false;
@@ -541,6 +648,8 @@ func _on_randomize_button_down() -> void:
 						color_picker.visible = false;
 						full_body.get_child(0).modulate = Color.WHITE;
 				else:
+					unsparkle_all(Good.GoodType.FULL_BODY);
+					
 					shirt.visible = false;
 					pants.visible = false;
 					
@@ -559,6 +668,8 @@ func _on_randomize_button_down() -> void:
 					
 					hat.get_child(1).texture = new_hat.good.outline;
 					
+					sparkle_option(new_hat.good);
+					
 					if (new_hat.good.color != null):
 						hat.get_child(0).visible = true;
 						hat.get_child(0).texture = new_hat.good.color;
@@ -575,6 +686,8 @@ func _on_randomize_button_down() -> void:
 						color_picker.visible = false;
 						hat.get_child(0).modulate = Color.WHITE;
 				else:
+					unsparkle_all(Good.GoodType.HAT);
+					
 					hat.visible = false;
 					color_picker.visible = false;
 			"Pants":
@@ -593,6 +706,8 @@ func _on_randomize_button_down() -> void:
 					
 					pants.get_child(1).texture = new_pants.good.outline;
 						
+					sparkle_option(new_pants.good);
+					
 					if (full_body.visible):
 						full_body.visible = false;
 						
@@ -613,6 +728,7 @@ func _on_randomize_button_down() -> void:
 						pants.get_child(0).modulate = Color.WHITE;
 				else:
 					pants.visible = false;
+					unsparkle_all(Good.GoodType.PANTS);
 					
 					full_body.visible = false;
 					color_picker.visible = false;
@@ -632,6 +748,8 @@ func _on_randomize_button_down() -> void:
 					
 					shirt.get_child(1).texture = new_shirt.good.outline;
 						
+					sparkle_option(new_shirt.good);
+					
 					if (full_body.visible):
 						full_body.visible = false;
 						
@@ -654,6 +772,7 @@ func _on_randomize_button_down() -> void:
 					shirt.visible = false;
 					
 					full_body.visible = false;
+					unsparkle_all(Good.GoodType.SHIRT);
 					color_picker.visible = false;
 			"Tail":	
 				var tail = player_cat.find_child("Tail");
@@ -667,6 +786,8 @@ func _on_randomize_button_down() -> void:
 					var new_tail = tails.pick_random();
 					
 					tail.get_child(1).texture = new_tail.good.outline;
+					
+					sparkle_option(new_tail.good);
 					
 					if (new_tail.good.color != null):
 						tail.get_child(0).visible = true;
@@ -685,6 +806,7 @@ func _on_randomize_button_down() -> void:
 						tail.get_child(0).modulate = Color.WHITE;
 				else:
 					tail.visible = false;
+					unsparkle_all(Good.GoodType.TAIL);
 					color_picker.visible = false;
 
 func _on_save_open_button_down() -> void:

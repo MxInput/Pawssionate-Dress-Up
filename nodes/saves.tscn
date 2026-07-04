@@ -56,10 +56,10 @@ vertical_alignment = 1
 
 [node name="Return" type="TextureButton" parent="CanvasLayer/Dressup" unique_id=1875593826]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 460.0
-offset_bottom = 104.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 428.0
+offset_bottom = 72.0
 texture_normal = ExtResource("16_ytgpc")
 
 [node name="Label" type="Label" parent="CanvasLayer/Dressup/Return" unique_id=610499768]
