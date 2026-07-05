@@ -67,6 +67,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Accessory", true, false).get_child(1).texture = complete_model.accessory[1];	
 			
 		if (complete_model.accessory_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.ACCESSORY] = complete_model.accessory_color;
+			
 			player_cat.find_child("Accessory", true, false).get_child(0).modulate = complete_model.accessory_color;
 			home_cat.find_child("Accessory", true, false).get_child(0).modulate = complete_model.accessory_color;
 		else:
@@ -106,6 +108,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Face", true, false).get_child(1).texture = complete_model.face[1];	
 			
 		if (complete_model.face_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.FACE] = complete_model.face_color;
+			
 			player_cat.find_child("Face", true, false).get_child(0).modulate = complete_model.face_color;
 			home_cat.find_child("Face", true, false).get_child(0).modulate = complete_model.face_color;
 		else:
@@ -145,6 +149,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("FullBody", true, false).get_child(1).texture = complete_model.full_body[1];	
 			
 		if (complete_model.full_body_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.FULL_BODY] = complete_model.full_body_color;
+			
 			player_cat.find_child("FullBody", true, false).get_child(0).modulate = complete_model.full_body_color;
 			home_cat.find_child("FullBody", true, false).get_child(0).modulate = complete_model.full_body_color;
 		else:
@@ -184,6 +190,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Hat", true, false).get_child(1).texture = complete_model.hat[1];	
 			
 		if (complete_model.hat_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.HAT] = complete_model.hat_color;
+			
 			player_cat.find_child("Hat", true, false).get_child(0).modulate = complete_model.hat_color;
 			home_cat.find_child("Hat", true, false).get_child(0).modulate = complete_model.hat_color;
 		else:
@@ -223,6 +231,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Shirt", true, false).get_child(1).texture = complete_model.shirt[1];	
 			
 		if (complete_model.shirt_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.SHIRT] = complete_model.shirt_color;
+			
 			player_cat.find_child("Shirt", true, false).get_child(0).modulate = complete_model.shirt_color;
 			home_cat.find_child("Shirt", true, false).get_child(0).modulate = complete_model.shirt_color;
 		else:
@@ -262,6 +272,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Pants", true, false).get_child(1).texture = complete_model.pants[1];	
 			
 		if (complete_model.pants_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.PANTS] = complete_model.pants_color;
+			
 			player_cat.find_child("Pants", true, false).get_child(0).modulate = complete_model.pants_color;
 			home_cat.find_child("Pants", true, false).get_child(0).modulate = complete_model.pants_color;
 		else:
@@ -301,6 +313,8 @@ func _on_load_button_down() -> void:
 		home_cat.find_child("Tail", true, false).get_child(1).texture = complete_model.tail[1];
 		
 		if (complete_model.tail_color != Color.WHITE):
+			good_handler.saved_colors[Good.GoodType.TAIL] = complete_model.tail_color;
+			
 			player_cat.find_child("Tail", true, false).get_child(0).modulate = complete_model.tail_color;
 			home_cat.find_child("Tail", true, false).get_child(0).modulate = complete_model.tail_color;
 		else:

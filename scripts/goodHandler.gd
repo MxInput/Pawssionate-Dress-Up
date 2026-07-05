@@ -20,6 +20,16 @@ extends Node
 
 @export var keep_colors : CheckBox;
 
+var saved_colors = {
+	Good.GoodType.ACCESSORY: Color.WHITE,	
+	Good.GoodType.FACE: Color.WHITE,	
+	Good.GoodType.TAIL: Color.WHITE,	
+	Good.GoodType.SHIRT: Color.WHITE,	
+	Good.GoodType.HAT: Color.WHITE,	
+	Good.GoodType.PANTS: Color.WHITE,	
+	Good.GoodType.FULL_BODY: Color.WHITE,	
+}
+
 signal enableColor(good_type);
 signal transfer_cat(created_model);
 
@@ -346,516 +356,1052 @@ func unsparkle_all(selected_good_type : Good.GoodType) -> void:
 										
 func _on_randomize_button_down() -> void:
 	if (!section_title.visible):
-		var rand_color := get_random_color();
-		player_cat.find_child("Body_Color").modulate = rand_color;
+		var keeping_colors := keep_colors.button_pressed;
 		
-		var accessory = player_cat.find_child("Accessory");
-		var accessories := accessory_container.get_child(0).get_children();
-				
-		var acc_chance = randi_range(0, accessories.size());
-				
-		if (acc_chance != 0):
-			accessory.visible = true;
-					
-			var new_accessory = accessories.pick_random();
-					
-			accessory.get_child(1).texture = new_accessory.good.outline;
-					
-			sparkle_option(new_accessory.good);
+		if (!keeping_colors):
+			var rand_color := get_random_color();
+			player_cat.find_child("Body_Color").modulate = rand_color;
 			
-			if (new_accessory.good.color != null):
-				accessory.get_child(0).visible = true;
-				accessory.get_child(0).texture = new_accessory.good.color;
-			else:
-				accessory.get_child(0).visible = false;
+			var accessory = player_cat.find_child("Accessory");
+			var accessories := accessory_container.get_child(0).get_children();
+					
+			var acc_chance = randi_range(0, accessories.size());
+					
+			if (acc_chance != 0):
+				accessory.visible = true;
 						
-			if (new_accessory.good.customizable):			
-				var rand_acc_color := get_random_color();
-				accessory.get_child(0).modulate = rand_acc_color;
+				var new_accessory = accessories.pick_random();
+						
+				accessory.get_child(1).texture = new_accessory.good.outline;
+						
+				sparkle_option(new_accessory.good);
+				
+				if (new_accessory.good.color != null):
+					accessory.get_child(0).visible = true;
+					accessory.get_child(0).texture = new_accessory.good.color;
+				else:
+					accessory.get_child(0).visible = false;
+							
+				if (new_accessory.good.customizable):			
+					var rand_acc_color := get_random_color();
+					accessory.get_child(0).modulate = rand_acc_color;
+					saved_colors[Good.GoodType.ACCESSORY] = rand_acc_color;
+				else:
+					accessory.get_child(0).modulate = Color.WHITE;
 			else:
-				accessory.get_child(0).modulate = Color.WHITE;
-		else:
-			accessory.visible = false;
-			unsparkle_all(Good.GoodType.ACCESSORY);
+				accessory.visible = false;
+				unsparkle_all(Good.GoodType.ACCESSORY);
 
-		var face = player_cat.find_child("Face");
-		var faces := face_container.get_child(0).get_children();
-				
-		var face_chance = randi_range(0, faces.size());
-				
-		if (face_chance != 0):
-			face.visible = true;
+			var face = player_cat.find_child("Face");
+			var faces := face_container.get_child(0).get_children();
 					
-			var new_face = faces.pick_random();
+			var face_chance = randi_range(0, faces.size());
 					
-			face.get_child(1).texture = new_face.good.outline;
-					
-			sparkle_option(new_face.good);
-			
-			if (new_face.good.color != null):
-				face.get_child(0).visible = true;
-				face.get_child(0).texture = new_face.good.color;
-			else:
-				face.get_child(0).visible = false;
+			if (face_chance != 0):
+				face.visible = true;
 						
-			if (new_face.good.customizable):	
-				var rand_face_color := get_random_color();
-				face.get_child(0).modulate = rand_face_color;
+				var new_face = faces.pick_random();
+						
+				face.get_child(1).texture = new_face.good.outline;
+						
+				sparkle_option(new_face.good);
+				
+				if (new_face.good.color != null):
+					face.get_child(0).visible = true;
+					face.get_child(0).texture = new_face.good.color;
+				else:
+					face.get_child(0).visible = false;
+							
+				if (new_face.good.customizable):	
+					var rand_face_color := get_random_color();
+					face.get_child(0).modulate = rand_face_color;
+					saved_colors[Good.GoodType.FACE] = rand_face_color;
+				else:
+					face.get_child(0).modulate = Color.WHITE;
 			else:
-				face.get_child(0).modulate = Color.WHITE;
-		else:
-			face.visible = false;
-			unsparkle_all(Good.GoodType.FACE);
+				face.visible = false;
+				unsparkle_all(Good.GoodType.FACE);
+				
+			var clothes_type_chance = randi_range(0, 1);
 			
-		var clothes_type_chance = randi_range(0, 1);
-		
-		if (clothes_type_chance == 0):
-				var full_body = player_cat.find_child("FullBody");
-				
-				var shirt = player_cat.find_child("Shirt");
-				var pants = player_cat.find_child("Pants");
-				
-				var full_bodies := full_body_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, full_bodies.size());
-				
-				if (chance != 0):	
-					full_body.visible = true;
+			if (clothes_type_chance == 0):
+					var full_body = player_cat.find_child("FullBody");
 					
-					var new_full_body = full_bodies.pick_random();
+					var shirt = player_cat.find_child("Shirt");
+					var pants = player_cat.find_child("Pants");
 					
-					full_body.get_child(1).texture = new_full_body.good.outline;
+					var full_bodies := full_body_container.get_child(0).get_children();
 					
-					sparkle_option(new_full_body.good);
+					var chance = randi_range(0, full_bodies.size());
 					
-					if (shirt.visible):
+					if (chance != 0):	
+						full_body.visible = true;
+						
+						var new_full_body = full_bodies.pick_random();
+						
+						full_body.get_child(1).texture = new_full_body.good.outline;
+						
+						sparkle_option(new_full_body.good);
+						
+						unsparkle_all(Good.GoodType.SHIRT);
+						unsparkle_all(Good.GoodType.PANTS);
+						
+						if (shirt.visible):
+							shirt.visible = false;
+							
+						if (pants.visible):
+							pants.visible = false;
+							
+						if (new_full_body.good.color != null):
+							full_body.get_child(0).visible = true;
+							full_body.get_child(0).texture = new_full_body.good.color;
+						else:
+							full_body.get_child(0).visible = false;
+							
+						if (new_full_body.good.customizable):							
+							var rand_full_body_color := get_random_color();
+							full_body.get_child(0).modulate = rand_full_body_color;
+							saved_colors[Good.GoodType.FULL_BODY] = rand_full_body_color;
+						else:
+							full_body.get_child(0).modulate = Color.WHITE;
+					else:
 						shirt.visible = false;
-						
-					if (pants.visible):
 						pants.visible = false;
 						
-					if (new_full_body.good.color != null):
-						full_body.get_child(0).visible = true;
-						full_body.get_child(0).texture = new_full_body.good.color;
-					else:
-						full_body.get_child(0).visible = false;
+						full_body.visible = false;
+						unsparkle_all(Good.GoodType.FULL_BODY);
 						
-					if (new_full_body.good.customizable):							
-						var rand_full_body_color := get_random_color();
-						full_body.get_child(0).modulate = rand_full_body_color;
-					else:
-						full_body.get_child(0).modulate = Color.WHITE;
-				else:
-					shirt.visible = false;
-					pants.visible = false;
-					
-					full_body.visible = false;
-					unsparkle_all(Good.GoodType.FULL_BODY);
-					
-		else:
-			var full_body = player_cat.find_child("FullBody");
-
-			var pants = player_cat.find_child("Pants");
-				
-			var all_pants := pants_container.get_child(0).get_children();
-				
-			var chance = randi_range(0, all_pants.size());
-				
-			if (chance != 0):	
-				pants.visible = true;
-					
-				var new_pants = all_pants.pick_random();
-					
-				pants.get_child(1).texture = new_pants.good.outline;
-					
-				sparkle_option(new_pants.good);
-						
-				if (full_body.visible):
-					full_body.visible = false;
-						
-				if (new_pants.good.color != null):
-					pants.get_child(0).visible = true;
-					pants.get_child(0).texture = new_pants.good.color;
-				else:
-					pants.get_child(0).visible = false;
-						
-				if (new_pants.good.customizable):	
-					var rand_pants_color := get_random_color();
-					pants.get_child(0).modulate = rand_pants_color;
-				else:
-					pants.get_child(0).modulate = Color.WHITE;
 			else:
-					unsparkle_all(Good.GoodType.PANTS);
-					pants.visible = false;
-					
-					full_body.visible = false;
-
-			var shirt = player_cat.find_child("Shirt");
-				
-			var all_shirts := shirt_container.get_child(0).get_children();
-				
-			var shirt_chance = randi_range(0, all_shirts.size());
-				
-			if (shirt_chance != 0):	
-				shirt.visible = true;
-					
-				var new_shirt = all_shirts.pick_random();
-					
-				shirt.get_child(1).texture = new_shirt.good.outline;
-					
-				sparkle_option(new_shirt.good);
-					
-				if (new_shirt.good.color != null):
-					shirt.get_child(0).visible = true;
-					shirt.get_child(0).texture = new_shirt.good.color;
-				else:
-					shirt.get_child(0).visible = false;
-	
-				if (new_shirt.good.customizable):			
-					var rand_shirt_color := get_random_color();
-					shirt.get_child(0).modulate = rand_shirt_color;
-				else:
-					shirt.get_child(0).modulate = Color.WHITE;
-			else:
-				unsparkle_all(Good.GoodType.SHIRT);
-				shirt.visible = false;
-				
-		var hat = player_cat.find_child("Hat");
-		var hats := hat_container.get_child(0).get_children();
-				
-		var hat_chance = randi_range(0, hats.size());
-				
-		if (hat_chance != 0):
-			hat.visible = true;
-					
-			var new_hat = hats.pick_random();
-					
-			hat.get_child(1).texture = new_hat.good.outline;
-					
-			sparkle_option(new_hat.good);
-			
-			if (new_hat.good.color != null):
-				hat.get_child(0).visible = true;
-				hat.get_child(0).texture = new_hat.good.color;
-			else:
-				hat.get_child(0).visible = false;
-						
-			if (new_hat.good.customizable):	
-				var rand_hat_color := get_random_color();
-				hat.get_child(0).modulate = rand_hat_color;
-			else:
-				hat.get_child(0).modulate = Color.WHITE;
-		else:
-			unsparkle_all(Good.GoodType.HAT);
-			hat.visible = false;
-
-		var tail = player_cat.find_child("Tail");
-		var tails := tail_container.get_child(0).get_children();
-				
-		var tail_chance = randi_range(0, tails.size());
-				
-		if (tail_chance != 0):
-			tail.visible = true;
-					
-			var new_tail = tails.pick_random();
-					
-			tail.get_child(1).texture = new_tail.good.outline;
-					
-			sparkle_option(new_tail.good);
-			
-			if (new_tail.good.color != null):
-				tail.get_child(0).visible = true;
-				tail.get_child(0).texture = new_tail.good.color;
-			else:
-				tail.get_child(0).visible = false;
-						
-			if (new_tail.good.customizable):						
-				var rand_tail_color := get_random_color();
-				tail.get_child(0).modulate = rand_tail_color;
-			else:
-				tail.get_child(0).modulate = Color.WHITE;
-		else:
-			tail.visible = false;
-			unsparkle_all(Good.GoodType.TAIL);
-	else:
-		match (section_title.text):
-			"[tornado radius=5 freq=3]Body":
-				var rand_color := get_random_color();
-				player_cat.find_child("Body_Color").modulate = rand_color;
-				color_picker.color = rand_color;
-			"[tornado radius=5 freq=3]Accessory":
-				var accessory = player_cat.find_child("Accessory");
-				var accessories := accessory_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, accessories.size());
-				
-				if (chance != 0):
-					accessory.visible = true;
-					
-					var new_accessory = accessories.pick_random();
-					
-					accessory.get_child(1).texture = new_accessory.good.outline;
-					
-					sparkle_option(new_accessory.good);
-					
-					if (new_accessory.good.color != null):
-						accessory.get_child(0).visible = true;
-						accessory.get_child(0).texture = new_accessory.good.color;
-					else:
-						accessory.get_child(0).visible = false;
-						
-					if (new_accessory.good.customizable):	
-						color_picker.visible = true;
-						
-						var rand_color := get_random_color();
-						accessory.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
-					else:
-						color_picker.visible = false;
-						accessory.get_child(0).modulate = Color.WHITE;
-				else:
-					unsparkle_all(Good.GoodType.ACCESSORY);
-					
-					accessory.visible = false;
-					color_picker.visible = false;
-					
-			"[tornado radius=5 freq=3]Face":
-				var face = player_cat.find_child("Face");
-				var faces := face_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, faces.size());
-				
-				if (chance != 0):
-					face.visible = true;
-					
-					var new_face = faces.pick_random();
-					
-					face.get_child(1).texture = new_face.good.outline;
-					
-					sparkle_option(new_face.good);
-					
-					if (new_face.good.color != null):
-						face.get_child(0).visible = true;
-						face.get_child(0).texture = new_face.good.color;
-					else:
-						face.get_child(0).visible = false;
-						
-					if (new_face.good.customizable):	
-						color_picker.visible = true;
-						
-						var rand_color := get_random_color();
-						face.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
-					else:
-						color_picker.visible = false;
-						face.get_child(0).modulate = Color.WHITE;
-				else:
-					unsparkle_all(Good.GoodType.FACE);
-					
-					face.visible = false;
-					color_picker.visible = false;
-			"[tornado radius=5 freq=3]Full Body Clothes":
-				var full_body = player_cat.find_child("FullBody");
-				
-				var shirt = player_cat.find_child("Shirt");
-				var pants = player_cat.find_child("Pants");
-				
-				var full_bodies := full_body_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, full_bodies.size());
-				
-				if (chance != 0):	
-					full_body.visible = true;
-					
-					var new_full_body = full_bodies.pick_random();
-					
-					full_body.get_child(1).texture = new_full_body.good.outline;
-					
-					sparkle_option(new_full_body.good);
-					
-					if (shirt.visible):
-						shirt.visible = false;
-						
-					if (pants.visible):
-						pants.visible = false;
-						
-					if (new_full_body.good.color != null):
-						full_body.get_child(0).visible = true;
-						full_body.get_child(0).texture = new_full_body.good.color;
-					else:
-						full_body.get_child(0).visible = false;
-						
-					if (new_full_body.good.customizable):	
-						color_picker.visible = true;
-						
-						var rand_color := get_random_color();
-						full_body.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
-					else:
-						color_picker.visible = false;
-						full_body.get_child(0).modulate = Color.WHITE;
-				else:
-					unsparkle_all(Good.GoodType.FULL_BODY);
-					
-					shirt.visible = false;
-					pants.visible = false;
-					
-					full_body.visible = false;
-					color_picker.visible = false;
-			"[tornado radius=5 freq=3]Hat":
-				var hat = player_cat.find_child("Hat");
-				var hats := hat_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, hats.size());
-				
-				if (chance != 0):
-					hat.visible = true;
-					
-					var new_hat = hats.pick_random();
-					
-					hat.get_child(1).texture = new_hat.good.outline;
-					
-					sparkle_option(new_hat.good);
-					
-					if (new_hat.good.color != null):
-						hat.get_child(0).visible = true;
-						hat.get_child(0).texture = new_hat.good.color;
-					else:
-						hat.get_child(0).visible = false;
-						
-					if (new_hat.good.customizable):	
-						color_picker.visible = true;
-						
-						var rand_color := get_random_color();
-						hat.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
-					else:
-						color_picker.visible = false;
-						hat.get_child(0).modulate = Color.WHITE;
-				else:
-					unsparkle_all(Good.GoodType.HAT);
-					
-					hat.visible = false;
-					color_picker.visible = false;
-			"[tornado radius=5 freq=3]Pants":
 				var full_body = player_cat.find_child("FullBody");
 
 				var pants = player_cat.find_child("Pants");
-				
+					
 				var all_pants := pants_container.get_child(0).get_children();
-				
+					
 				var chance = randi_range(0, all_pants.size());
-				
+					
 				if (chance != 0):	
 					pants.visible = true;
-					
+						
 					var new_pants = all_pants.pick_random();
-					
+						
 					pants.get_child(1).texture = new_pants.good.outline;
 						
 					sparkle_option(new_pants.good);
 					
+					unsparkle_all(Good.GoodType.FULL_BODY);
+					
 					if (full_body.visible):
 						full_body.visible = false;
-						
+							
 					if (new_pants.good.color != null):
 						pants.get_child(0).visible = true;
 						pants.get_child(0).texture = new_pants.good.color;
 					else:
 						pants.get_child(0).visible = false;
-						
+							
 					if (new_pants.good.customizable):	
-						color_picker.visible = true;
-						
-						var rand_color := get_random_color();
-						pants.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
+						var rand_pants_color := get_random_color();
+						pants.get_child(0).modulate = rand_pants_color;
+						saved_colors[Good.GoodType.PANTS] = rand_pants_color;
 					else:
-						color_picker.visible = false;
 						pants.get_child(0).modulate = Color.WHITE;
 				else:
-					pants.visible = false;
-					unsparkle_all(Good.GoodType.PANTS);
-					
-					full_body.visible = false;
-					color_picker.visible = false;
-			"[tornado radius=5 freq=3]Shirt":	
-				var full_body = player_cat.find_child("FullBody");
+						unsparkle_all(Good.GoodType.PANTS);
+						pants.visible = false;
+						
+						full_body.visible = false;
 
 				var shirt = player_cat.find_child("Shirt");
-				
+					
 				var all_shirts := shirt_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, all_shirts.size());
-				
-				if (chance != 0):	
+					
+				var shirt_chance = randi_range(0, all_shirts.size());
+					
+				if (shirt_chance != 0):	
 					shirt.visible = true;
-					
+						
 					var new_shirt = all_shirts.pick_random();
-					
+						
 					shirt.get_child(1).texture = new_shirt.good.outline;
 						
 					sparkle_option(new_shirt.good);
-					
-					if (full_body.visible):
-						full_body.visible = false;
 						
+					unsparkle_all(Good.GoodType.FULL_BODY);
+					
 					if (new_shirt.good.color != null):
 						shirt.get_child(0).visible = true;
 						shirt.get_child(0).texture = new_shirt.good.color;
 					else:
 						shirt.get_child(0).visible = false;
-						
-					if (new_shirt.good.customizable):	
-						color_picker.visible = true;
-						
-						var rand_color := get_random_color();
-						shirt.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
+		
+					if (new_shirt.good.customizable):			
+						var rand_shirt_color := get_random_color();
+						shirt.get_child(0).modulate = rand_shirt_color;
+						saved_colors[Good.GoodType.SHIRT] = rand_shirt_color;
 					else:
-						color_picker.visible = false;
 						shirt.get_child(0).modulate = Color.WHITE;
 				else:
+					unsparkle_all(Good.GoodType.SHIRT);
 					shirt.visible = false;
 					
-					full_body.visible = false;
-					unsparkle_all(Good.GoodType.SHIRT);
-					color_picker.visible = false;
-			"[tornado radius=5 freq=3]Tail":	
-				var tail = player_cat.find_child("Tail");
-				var tails := tail_container.get_child(0).get_children();
-				
-				var chance = randi_range(0, tails.size());
-				
-				if (chance != 0):
-					tail.visible = true;
+			var hat = player_cat.find_child("Hat");
+			var hats := hat_container.get_child(0).get_children();
 					
-					var new_tail = tails.pick_random();
+			var hat_chance = randi_range(0, hats.size());
 					
-					tail.get_child(1).texture = new_tail.good.outline;
-					
-					sparkle_option(new_tail.good);
-					
-					if (new_tail.good.color != null):
-						tail.get_child(0).visible = true;
-						tail.get_child(0).texture = new_tail.good.color;
-					else:
-						tail.get_child(0).visible = false;
+			if (hat_chance != 0):
+				hat.visible = true;
 						
-					if (new_tail.good.customizable):	
-						color_picker.visible = true;
+				var new_hat = hats.pick_random();
 						
-						var rand_color := get_random_color();
-						tail.get_child(0).modulate = rand_color;
-						color_picker.color = rand_color;
-					else:
-						color_picker.visible = false;
-						tail.get_child(0).modulate = Color.WHITE;
+				hat.get_child(1).texture = new_hat.good.outline;
+						
+				sparkle_option(new_hat.good);
+				
+				if (new_hat.good.color != null):
+					hat.get_child(0).visible = true;
+					hat.get_child(0).texture = new_hat.good.color;
 				else:
-					tail.visible = false;
-					unsparkle_all(Good.GoodType.TAIL);
-					color_picker.visible = false;
+					hat.get_child(0).visible = false;
+							
+				if (new_hat.good.customizable):	
+					var rand_hat_color := get_random_color();
+					hat.get_child(0).modulate = rand_hat_color;
+					saved_colors[Good.GoodType.HAT] = rand_hat_color;
+				else:
+					hat.get_child(0).modulate = Color.WHITE;
+			else:
+				unsparkle_all(Good.GoodType.HAT);
+				hat.visible = false;
 
+			var tail = player_cat.find_child("Tail");
+			var tails := tail_container.get_child(0).get_children();
+					
+			var tail_chance = randi_range(0, tails.size());
+					
+			if (tail_chance != 0):
+				tail.visible = true;
+						
+				var new_tail = tails.pick_random();
+						
+				tail.get_child(1).texture = new_tail.good.outline;
+						
+				sparkle_option(new_tail.good);
+				
+				if (new_tail.good.color != null):
+					tail.get_child(0).visible = true;
+					tail.get_child(0).texture = new_tail.good.color;
+				else:
+					tail.get_child(0).visible = false;
+							
+				if (new_tail.good.customizable):						
+					var rand_tail_color := get_random_color();
+					tail.get_child(0).modulate = rand_tail_color;
+					saved_colors[Good.GoodType.TAIL] = rand_tail_color;
+				else:
+					tail.get_child(0).modulate = Color.WHITE;
+			else:
+				tail.visible = false;
+				unsparkle_all(Good.GoodType.TAIL);
+		else:
+			var accessory = player_cat.find_child("Accessory");
+			var accessories := accessory_container.get_child(0).get_children();
+					
+			var acc_chance = randi_range(0, accessories.size());
+					
+			if (acc_chance != 0):
+				accessory.visible = true;
+						
+				var new_accessory = accessories.pick_random();
+						
+				accessory.get_child(1).texture = new_accessory.good.outline;
+						
+				sparkle_option(new_accessory.good);
+				
+				if (new_accessory.good.color != null):
+					accessory.get_child(0).visible = true;
+					accessory.get_child(0).texture = new_accessory.good.color;
+				else:
+					accessory.get_child(0).visible = false;
+							
+				if (new_accessory.good.customizable):			
+					accessory.get_child(0).modulate = saved_colors[Good.GoodType.ACCESSORY];
+				else:
+					accessory.get_child(0).modulate = Color.WHITE;
+			else:
+				accessory.visible = false;
+				unsparkle_all(Good.GoodType.ACCESSORY);
+
+			var face = player_cat.find_child("Face");
+			var faces := face_container.get_child(0).get_children();
+					
+			var face_chance = randi_range(0, faces.size());
+					
+			if (face_chance != 0):
+				face.visible = true;
+						
+				var new_face = faces.pick_random();
+						
+				face.get_child(1).texture = new_face.good.outline;
+						
+				sparkle_option(new_face.good);
+				
+				if (new_face.good.color != null):
+					face.get_child(0).visible = true;
+					face.get_child(0).texture = new_face.good.color;
+				else:
+					face.get_child(0).visible = false;
+							
+				if (new_face.good.customizable):	
+					face.get_child(0).modulate = saved_colors[Good.GoodType.FACE];
+				else:
+					face.get_child(0).modulate = Color.WHITE;
+			else:
+				face.visible = false;
+				unsparkle_all(Good.GoodType.FACE);
+				
+			var clothes_type_chance = randi_range(0, 1);
+			
+			if (clothes_type_chance == 0):
+					var full_body = player_cat.find_child("FullBody");
+					
+					var shirt = player_cat.find_child("Shirt");
+					var pants = player_cat.find_child("Pants");
+					
+					var full_bodies := full_body_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, full_bodies.size());
+					
+					if (chance != 0):	
+						full_body.visible = true;
+						
+						var new_full_body = full_bodies.pick_random();
+						
+						full_body.get_child(1).texture = new_full_body.good.outline;
+						
+						sparkle_option(new_full_body.good);
+						
+						unsparkle_all(Good.GoodType.SHIRT);
+						unsparkle_all(Good.GoodType.PANTS);
+						
+						if (shirt.visible):
+							shirt.visible = false;
+							
+						if (pants.visible):
+							pants.visible = false;
+							
+						if (new_full_body.good.color != null):
+							full_body.get_child(0).visible = true;
+							full_body.get_child(0).texture = new_full_body.good.color;
+						else:
+							full_body.get_child(0).visible = false;
+							
+						if (new_full_body.good.customizable):							
+							full_body.get_child(0).modulate = saved_colors[Good.GoodType.FULL_BODY];
+						else:
+							full_body.get_child(0).modulate = Color.WHITE;
+					else:
+						shirt.visible = false;
+						pants.visible = false;
+						
+						full_body.visible = false;
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+			else:
+				var full_body = player_cat.find_child("FullBody");
+
+				var pants = player_cat.find_child("Pants");
+					
+				var all_pants := pants_container.get_child(0).get_children();
+					
+				var chance = randi_range(0, all_pants.size());
+					
+				if (chance != 0):	
+					pants.visible = true;
+						
+					var new_pants = all_pants.pick_random();
+						
+					pants.get_child(1).texture = new_pants.good.outline;
+						
+					sparkle_option(new_pants.good);
+					
+					unsparkle_all(Good.GoodType.FULL_BODY);
+							
+					if (full_body.visible):
+						full_body.visible = false;
+							
+					if (new_pants.good.color != null):
+						pants.get_child(0).visible = true;
+						pants.get_child(0).texture = new_pants.good.color;
+					else:
+						pants.get_child(0).visible = false;
+							
+					if (new_pants.good.customizable):	
+						pants.get_child(0).modulate = saved_colors[Good.GoodType.PANTS];
+					else:
+						pants.get_child(0).modulate = Color.WHITE;
+				else:
+						unsparkle_all(Good.GoodType.PANTS);
+						pants.visible = false;
+						
+						full_body.visible = false;
+
+				var shirt = player_cat.find_child("Shirt");
+					
+				var all_shirts := shirt_container.get_child(0).get_children();
+					
+				var shirt_chance = randi_range(0, all_shirts.size());
+					
+				if (shirt_chance != 0):	
+					shirt.visible = true;
+						
+					var new_shirt = all_shirts.pick_random();
+						
+					shirt.get_child(1).texture = new_shirt.good.outline;
+						
+					sparkle_option(new_shirt.good);
+						
+					unsparkle_all(Good.GoodType.FULL_BODY);
+					
+					if (new_shirt.good.color != null):
+						shirt.get_child(0).visible = true;
+						shirt.get_child(0).texture = new_shirt.good.color;
+					else:
+						shirt.get_child(0).visible = false;
+		
+					if (new_shirt.good.customizable):			
+						shirt.get_child(0).modulate = saved_colors[Good.GoodType.SHIRT];
+					else:
+						shirt.get_child(0).modulate = Color.WHITE;
+				else:
+					unsparkle_all(Good.GoodType.SHIRT);
+					shirt.visible = false;
+					
+			var hat = player_cat.find_child("Hat");
+			var hats := hat_container.get_child(0).get_children();
+					
+			var hat_chance = randi_range(0, hats.size());
+					
+			if (hat_chance != 0):
+				hat.visible = true;
+						
+				var new_hat = hats.pick_random();
+						
+				hat.get_child(1).texture = new_hat.good.outline;
+						
+				sparkle_option(new_hat.good);
+				
+				if (new_hat.good.color != null):
+					hat.get_child(0).visible = true;
+					hat.get_child(0).texture = new_hat.good.color;
+				else:
+					hat.get_child(0).visible = false;
+							
+				if (new_hat.good.customizable):	
+					hat.get_child(0).modulate = saved_colors[Good.GoodType.HAT];
+				else:
+					hat.get_child(0).modulate = Color.WHITE;
+			else:
+				unsparkle_all(Good.GoodType.HAT);
+				hat.visible = false;
+
+			var tail = player_cat.find_child("Tail");
+			var tails := tail_container.get_child(0).get_children();
+					
+			var tail_chance = randi_range(0, tails.size());
+					
+			if (tail_chance != 0):
+				tail.visible = true;
+						
+				var new_tail = tails.pick_random();
+						
+				tail.get_child(1).texture = new_tail.good.outline;
+						
+				sparkle_option(new_tail.good);
+				
+				if (new_tail.good.color != null):
+					tail.get_child(0).visible = true;
+					tail.get_child(0).texture = new_tail.good.color;
+				else:
+					tail.get_child(0).visible = false;
+							
+				if (new_tail.good.customizable):						
+					tail.get_child(0).modulate = saved_colors[Good.GoodType.TAIL];
+				else:
+					tail.get_child(0).modulate = Color.WHITE;
+			else:
+				tail.visible = false;
+				unsparkle_all(Good.GoodType.TAIL);
+	else:
+		var keeping_colors := keep_colors.button_pressed;
+
+		if (!keeping_colors):
+			match (section_title.text):
+				"[tornado radius=5 freq=3]Body":
+					var rand_color := get_random_color();
+					player_cat.find_child("Body_Color").modulate = rand_color;
+					color_picker.color = rand_color;
+				"[tornado radius=5 freq=3]Accessory":
+					var accessory = player_cat.find_child("Accessory");
+					var accessories := accessory_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, accessories.size());
+					
+					if (chance != 0):
+						accessory.visible = true;
+						
+						var new_accessory = accessories.pick_random();
+						
+						accessory.get_child(1).texture = new_accessory.good.outline;
+						
+						sparkle_option(new_accessory.good);
+						
+						if (new_accessory.good.color != null):
+							accessory.get_child(0).visible = true;
+							accessory.get_child(0).texture = new_accessory.good.color;
+						else:
+							accessory.get_child(0).visible = false;
+							
+						if (new_accessory.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							accessory.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.ACCESSORY] = rand_color;
+						else:
+							color_picker.visible = false;
+							accessory.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.ACCESSORY);
+						
+						accessory.visible = false;
+						color_picker.visible = false;
+						
+				"[tornado radius=5 freq=3]Face":
+					var face = player_cat.find_child("Face");
+					var faces := face_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, faces.size());
+					
+					if (chance != 0):
+						face.visible = true;
+						
+						var new_face = faces.pick_random();
+						
+						face.get_child(1).texture = new_face.good.outline;
+						
+						sparkle_option(new_face.good);
+						
+						if (new_face.good.color != null):
+							face.get_child(0).visible = true;
+							face.get_child(0).texture = new_face.good.color;
+						else:
+							face.get_child(0).visible = false;
+							
+						if (new_face.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							face.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.FACE] = rand_color;
+						else:
+							color_picker.visible = false;
+							face.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.FACE);
+						
+						face.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Full Body Clothes":
+					var full_body = player_cat.find_child("FullBody");
+					
+					var shirt = player_cat.find_child("Shirt");
+					var pants = player_cat.find_child("Pants");
+					
+					var full_bodies := full_body_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, full_bodies.size());
+					
+					if (chance != 0):	
+						full_body.visible = true;
+						
+						var new_full_body = full_bodies.pick_random();
+						
+						full_body.get_child(1).texture = new_full_body.good.outline;
+						
+						sparkle_option(new_full_body.good);
+						
+						unsparkle_all(Good.GoodType.SHIRT);
+						unsparkle_all(Good.GoodType.PANTS);
+						
+						if (shirt.visible):
+							shirt.visible = false;
+							
+						if (pants.visible):
+							pants.visible = false;
+							
+						if (new_full_body.good.color != null):
+							full_body.get_child(0).visible = true;
+							full_body.get_child(0).texture = new_full_body.good.color;
+						else:
+							full_body.get_child(0).visible = false;
+							
+						if (new_full_body.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							full_body.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.FULL_BODY] = rand_color;
+						else:
+							color_picker.visible = false;
+							full_body.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+						shirt.visible = false;
+						pants.visible = false;
+						
+						full_body.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Hat":
+					var hat = player_cat.find_child("Hat");
+					var hats := hat_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, hats.size());
+					
+					if (chance != 0):
+						hat.visible = true;
+						
+						var new_hat = hats.pick_random();
+						
+						hat.get_child(1).texture = new_hat.good.outline;
+						
+						sparkle_option(new_hat.good);
+						
+						if (new_hat.good.color != null):
+							hat.get_child(0).visible = true;
+							hat.get_child(0).texture = new_hat.good.color;
+						else:
+							hat.get_child(0).visible = false;
+							
+						if (new_hat.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							hat.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.HAT] = rand_color;
+						else:
+							color_picker.visible = false;
+							hat.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.HAT);
+						
+						hat.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Pants":
+					var full_body = player_cat.find_child("FullBody");
+
+					var pants = player_cat.find_child("Pants");
+					
+					var all_pants := pants_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, all_pants.size());
+					
+					if (chance != 0):	
+						pants.visible = true;
+						
+						var new_pants = all_pants.pick_random();
+						
+						pants.get_child(1).texture = new_pants.good.outline;
+							
+						sparkle_option(new_pants.good);
+						
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+						if (full_body.visible):
+							full_body.visible = false;
+							
+						if (new_pants.good.color != null):
+							pants.get_child(0).visible = true;
+							pants.get_child(0).texture = new_pants.good.color;
+						else:
+							pants.get_child(0).visible = false;
+							
+						if (new_pants.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							pants.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.PANTS] = rand_color;
+						else:
+							color_picker.visible = false;
+							pants.get_child(0).modulate = Color.WHITE;
+					else:
+						pants.visible = false;
+						unsparkle_all(Good.GoodType.PANTS);
+						
+						full_body.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Shirt":	
+					var full_body = player_cat.find_child("FullBody");
+
+					var shirt = player_cat.find_child("Shirt");
+					
+					var all_shirts := shirt_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, all_shirts.size());
+					
+					if (chance != 0):	
+						shirt.visible = true;
+						
+						var new_shirt = all_shirts.pick_random();
+						
+						shirt.get_child(1).texture = new_shirt.good.outline;
+							
+						sparkle_option(new_shirt.good);
+						
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+						if (full_body.visible):
+							full_body.visible = false;
+							
+						if (new_shirt.good.color != null):
+							shirt.get_child(0).visible = true;
+							shirt.get_child(0).texture = new_shirt.good.color;
+						else:
+							shirt.get_child(0).visible = false;
+							
+						if (new_shirt.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							shirt.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.SHIRT] = rand_color;
+						else:
+							color_picker.visible = false;
+							shirt.get_child(0).modulate = Color.WHITE;
+					else:
+						shirt.visible = false;
+						
+						full_body.visible = false;
+						unsparkle_all(Good.GoodType.SHIRT);
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Tail":	
+					var tail = player_cat.find_child("Tail");
+					var tails := tail_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, tails.size());
+					
+					if (chance != 0):
+						tail.visible = true;
+						
+						var new_tail = tails.pick_random();
+						
+						tail.get_child(1).texture = new_tail.good.outline;
+						
+						sparkle_option(new_tail.good);
+						
+						if (new_tail.good.color != null):
+							tail.get_child(0).visible = true;
+							tail.get_child(0).texture = new_tail.good.color;
+						else:
+							tail.get_child(0).visible = false;
+							
+						if (new_tail.good.customizable):	
+							color_picker.visible = true;
+							
+							var rand_color := get_random_color();
+							tail.get_child(0).modulate = rand_color;
+							color_picker.color = rand_color;
+							saved_colors[Good.GoodType.TAIL] = rand_color;
+						else:
+							color_picker.visible = false;
+							tail.get_child(0).modulate = Color.WHITE;
+					else:
+						tail.visible = false;
+						unsparkle_all(Good.GoodType.TAIL);
+						color_picker.visible = false;
+		else:
+			match (section_title.text):
+				"[tornado radius=5 freq=3]Accessory":
+					var accessory = player_cat.find_child("Accessory");
+					var accessories := accessory_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, accessories.size());
+					
+					if (chance != 0):
+						accessory.visible = true;
+						
+						var new_accessory = accessories.pick_random();
+						
+						accessory.get_child(1).texture = new_accessory.good.outline;
+						
+						sparkle_option(new_accessory.good);
+						
+						if (new_accessory.good.color != null):
+							accessory.get_child(0).visible = true;
+							accessory.get_child(0).texture = new_accessory.good.color;
+						else:
+							accessory.get_child(0).visible = false;
+							
+						if (new_accessory.good.customizable):	
+							color_picker.visible = true;
+						
+							accessory.get_child(0).modulate = saved_colors[Good.GoodType.ACCESSORY];
+							color_picker.color = saved_colors[Good.GoodType.ACCESSORY];
+						else:
+							color_picker.visible = false;
+							accessory.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.ACCESSORY);
+						
+						accessory.visible = false;
+						color_picker.visible = false;
+						
+				"[tornado radius=5 freq=3]Face":
+					var face = player_cat.find_child("Face");
+					var faces := face_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, faces.size());
+					
+					if (chance != 0):
+						face.visible = true;
+						
+						var new_face = faces.pick_random();
+						
+						face.get_child(1).texture = new_face.good.outline;
+						
+						sparkle_option(new_face.good);
+						
+						if (new_face.good.color != null):
+							face.get_child(0).visible = true;
+							face.get_child(0).texture = new_face.good.color;
+						else:
+							face.get_child(0).visible = false;
+							
+						if (new_face.good.customizable):	
+							color_picker.visible = true;
+							
+							face.get_child(0).modulate = saved_colors[Good.GoodType.FACE];
+							color_picker.color = saved_colors[Good.GoodType.FACE];
+						else:
+							color_picker.visible = false;
+							face.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.FACE);
+						
+						face.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Full Body Clothes":
+					var full_body = player_cat.find_child("FullBody");
+					
+					var shirt = player_cat.find_child("Shirt");
+					var pants = player_cat.find_child("Pants");
+					
+					var full_bodies := full_body_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, full_bodies.size());
+					
+					if (chance != 0):	
+						full_body.visible = true;
+						
+						var new_full_body = full_bodies.pick_random();
+						
+						full_body.get_child(1).texture = new_full_body.good.outline;
+						
+						sparkle_option(new_full_body.good);
+						
+						unsparkle_all(Good.GoodType.SHIRT);
+						unsparkle_all(Good.GoodType.PANTS);
+						
+						if (shirt.visible):
+							shirt.visible = false;
+							
+						if (pants.visible):
+							pants.visible = false;
+							
+						if (new_full_body.good.color != null):
+							full_body.get_child(0).visible = true;
+							full_body.get_child(0).texture = new_full_body.good.color;
+						else:
+							full_body.get_child(0).visible = false;
+							
+						if (new_full_body.good.customizable):	
+							color_picker.visible = true;
+
+							full_body.get_child(0).modulate =saved_colors[Good.GoodType.FULL_BODY];
+							color_picker.color = saved_colors[Good.GoodType.FULL_BODY];
+						else:
+							color_picker.visible = false;
+							full_body.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+						shirt.visible = false;
+						pants.visible = false;
+						
+						full_body.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Hat":
+					var hat = player_cat.find_child("Hat");
+					var hats := hat_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, hats.size());
+					
+					if (chance != 0):
+						hat.visible = true;
+						
+						var new_hat = hats.pick_random();
+						
+						hat.get_child(1).texture = new_hat.good.outline;
+						
+						sparkle_option(new_hat.good);
+						
+						if (new_hat.good.color != null):
+							hat.get_child(0).visible = true;
+							hat.get_child(0).texture = new_hat.good.color;
+						else:
+							hat.get_child(0).visible = false;
+							
+						if (new_hat.good.customizable):	
+							color_picker.visible = true;
+
+							hat.get_child(0).modulate = saved_colors[Good.GoodType.HAT];
+							color_picker.color = saved_colors[Good.GoodType.HAT];
+						else:
+							color_picker.visible = false;
+							hat.get_child(0).modulate = Color.WHITE;
+					else:
+						unsparkle_all(Good.GoodType.HAT);
+						
+						hat.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Pants":
+					var full_body = player_cat.find_child("FullBody");
+
+					var pants = player_cat.find_child("Pants");
+					
+					var all_pants := pants_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, all_pants.size());
+					
+					if (chance != 0):	
+						pants.visible = true;
+						
+						var new_pants = all_pants.pick_random();
+						
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+						pants.get_child(1).texture = new_pants.good.outline;
+							
+						sparkle_option(new_pants.good);
+						
+						if (full_body.visible):
+							full_body.visible = false;
+							
+						if (new_pants.good.color != null):
+							pants.get_child(0).visible = true;
+							pants.get_child(0).texture = new_pants.good.color;
+						else:
+							pants.get_child(0).visible = false;
+							
+						if (new_pants.good.customizable):	
+							color_picker.visible = true;
+
+							pants.get_child(0).modulate = saved_colors[Good.GoodType.PANTS];
+							color_picker.color = saved_colors[Good.GoodType.PANTS];
+						else:
+							color_picker.visible = false;
+							pants.get_child(0).modulate = Color.WHITE;
+					else:
+						pants.visible = false;
+						unsparkle_all(Good.GoodType.PANTS);
+						
+						full_body.visible = false;
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Shirt":	
+					var full_body = player_cat.find_child("FullBody");
+
+					var shirt = player_cat.find_child("Shirt");
+					
+					var all_shirts := shirt_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, all_shirts.size());
+					
+					if (chance != 0):	
+						shirt.visible = true;
+						
+						var new_shirt = all_shirts.pick_random();
+						
+						shirt.get_child(1).texture = new_shirt.good.outline;
+							
+						unsparkle_all(Good.GoodType.FULL_BODY);
+						
+						sparkle_option(new_shirt.good);
+						
+						if (full_body.visible):
+							full_body.visible = false;
+							
+						if (new_shirt.good.color != null):
+							shirt.get_child(0).visible = true;
+							shirt.get_child(0).texture = new_shirt.good.color;
+						else:
+							shirt.get_child(0).visible = false;
+							
+						if (new_shirt.good.customizable):	
+							color_picker.visible = true;
+
+							shirt.get_child(0).modulate = saved_colors[Good.GoodType.SHIRT];
+							color_picker.color = saved_colors[Good.GoodType.SHIRT];
+						else:
+							color_picker.visible = false;
+							shirt.get_child(0).modulate = Color.WHITE;
+					else:
+						shirt.visible = false;
+						
+						full_body.visible = false;
+						unsparkle_all(Good.GoodType.SHIRT);
+						color_picker.visible = false;
+				"[tornado radius=5 freq=3]Tail":	
+					var tail = player_cat.find_child("Tail");
+					var tails := tail_container.get_child(0).get_children();
+					
+					var chance = randi_range(0, tails.size());
+					
+					if (chance != 0):
+						tail.visible = true;
+						
+						var new_tail = tails.pick_random();
+						
+						tail.get_child(1).texture = new_tail.good.outline;
+						
+						sparkle_option(new_tail.good);
+						
+						if (new_tail.good.color != null):
+							tail.get_child(0).visible = true;
+							tail.get_child(0).texture = new_tail.good.color;
+						else:
+							tail.get_child(0).visible = false;
+							
+						if (new_tail.good.customizable):	
+							color_picker.visible = true;
+
+							tail.get_child(0).modulate = saved_colors[Good.GoodType.TAIL];
+							color_picker.color = saved_colors[Good.GoodType.TAIL];
+						else:
+							color_picker.visible = false;
+							tail.get_child(0).modulate = Color.WHITE;
+					else:
+						tail.visible = false;
+						unsparkle_all(Good.GoodType.TAIL);
+						color_picker.visible = false;
 func _on_save_open_button_down() -> void:
 	var saves := preload("res://nodes/saves.tscn").instantiate();
 	var tree = get_tree();

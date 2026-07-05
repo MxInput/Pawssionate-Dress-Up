@@ -34,7 +34,6 @@ func load_cat(cat : Sprite2D) -> void:
 	player_cat = created_cat;
 	
 func load_saved_outfits() -> void:
-	print(save_game.models.size())
 	for saved_outfit in save_game.models:
 		var new_model_display = complete_temp.instantiate();
 		new_model_display.complete_model = saved_outfit;

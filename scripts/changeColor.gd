@@ -2,9 +2,14 @@ extends ColorPicker
 
 @export var player_cat : Sprite2D;
 
+@export var good_handler : Node;
+
 var to_change : Sprite2D;
+var key : Good.GoodType;
 
 func change(good_type : Good.GoodType) -> void:
+	key = good_type;
+	
 	match (good_type):
 		Good.GoodType.BODY:
 			to_change = player_cat.get_child(0);
@@ -25,4 +30,5 @@ func change(good_type : Good.GoodType) -> void:
 	
 func _on_color_changed(color: Color) -> void:
 	if (to_change != null):
+		good_handler.saved_colors[key] = color;
 		to_change.modulate = color;
