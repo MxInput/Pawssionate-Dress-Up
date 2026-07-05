@@ -16,7 +16,9 @@ extends Node
 
 @export var color_picker : ColorPicker;
 
-@export var section_title : Label;
+@export var section_title : RichTextLabel;
+
+@export var keep_colors : CheckBox;
 
 signal enableColor(good_type);
 signal transfer_cat(created_model);
@@ -577,11 +579,11 @@ func _on_randomize_button_down() -> void:
 			unsparkle_all(Good.GoodType.TAIL);
 	else:
 		match (section_title.text):
-			"Body":
+			"[tornado radius=5 freq=3]Body":
 				var rand_color := get_random_color();
 				player_cat.find_child("Body_Color").modulate = rand_color;
 				color_picker.color = rand_color;
-			"Accessory":
+			"[tornado radius=5 freq=3]Accessory":
 				var accessory = player_cat.find_child("Accessory");
 				var accessories := accessory_container.get_child(0).get_children();
 				
@@ -617,7 +619,7 @@ func _on_randomize_button_down() -> void:
 					accessory.visible = false;
 					color_picker.visible = false;
 					
-			"Face":
+			"[tornado radius=5 freq=3]Face":
 				var face = player_cat.find_child("Face");
 				var faces := face_container.get_child(0).get_children();
 				
@@ -652,7 +654,7 @@ func _on_randomize_button_down() -> void:
 					
 					face.visible = false;
 					color_picker.visible = false;
-			"Full Body Clothes":
+			"[tornado radius=5 freq=3]Full Body Clothes":
 				var full_body = player_cat.find_child("FullBody");
 				
 				var shirt = player_cat.find_child("Shirt");
@@ -700,7 +702,7 @@ func _on_randomize_button_down() -> void:
 					
 					full_body.visible = false;
 					color_picker.visible = false;
-			"Hat":
+			"[tornado radius=5 freq=3]Hat":
 				var hat = player_cat.find_child("Hat");
 				var hats := hat_container.get_child(0).get_children();
 				
@@ -735,7 +737,7 @@ func _on_randomize_button_down() -> void:
 					
 					hat.visible = false;
 					color_picker.visible = false;
-			"Pants":
+			"[tornado radius=5 freq=3]Pants":
 				var full_body = player_cat.find_child("FullBody");
 
 				var pants = player_cat.find_child("Pants");
@@ -777,7 +779,7 @@ func _on_randomize_button_down() -> void:
 					
 					full_body.visible = false;
 					color_picker.visible = false;
-			"Shirt":	
+			"[tornado radius=5 freq=3]Shirt":	
 				var full_body = player_cat.find_child("FullBody");
 
 				var shirt = player_cat.find_child("Shirt");
@@ -819,7 +821,7 @@ func _on_randomize_button_down() -> void:
 					full_body.visible = false;
 					unsparkle_all(Good.GoodType.SHIRT);
 					color_picker.visible = false;
-			"Tail":	
+			"[tornado radius=5 freq=3]Tail":	
 				var tail = player_cat.find_child("Tail");
 				var tails := tail_container.get_child(0).get_children();
 				

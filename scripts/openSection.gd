@@ -9,7 +9,9 @@ extends TextureButton
 
 @export var color_picker : ColorPicker;
 
-@export var section_title : Label;
+@export var section_title : RichTextLabel;
+
+@export var randomize_button : TextureButton;
 
 signal enableColor(good_type);
 
@@ -23,14 +25,17 @@ func closeAll() -> void:
 			control.visible = false;
 	
 func _on_button_down() -> void:
+	var effect_name := "[tornado radius=5 freq=3]";
 	backButton.visible = true;
 	
 	section_title.visible = true;
-	section_title.text = name;
+	section_title.text = effect_name + name;
+	randomize_button.get_child(0).text = "RANDOMIZE " + name;
 	
 	if (name == "FullBody"):
-		section_title.text = "Full Body Clothes";
-	
+		section_title.text = effect_name + "Full Body Clothes";
+		randomize_button.get_child(0).text = "RANDOMIZE " + "Full Body Clothes";
+		
 	homeList.visible = false;
 	
 	if (goodList != null):
@@ -41,6 +46,8 @@ func _on_button_down() -> void:
 			enableColor.emit(Good.GoodType.BODY);
 
 func _on_back_button_down() -> void:
+	randomize_button.get_child(0).text = "RANDOMIZE ALL";
+	
 	backButton.visible = false;
 	section_title.visible = false;
 	

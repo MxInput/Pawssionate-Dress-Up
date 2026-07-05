@@ -150,9 +150,9 @@ offset_bottom = 40.0
 visible = false
 layout_mode = 0
 offset_left = 709.0
-offset_top = 203.0
+offset_top = 191.0
 offset_right = 1129.0
-offset_bottom = 267.0
+offset_bottom = 255.0
 texture_normal = ExtResource("16_tvltm")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/Back" unique_id=1125955950]
@@ -343,7 +343,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Body" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "backButton", "dressUpControl", "color_picker", "section_title", "randomize_button")]
+[node name="Body" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1118133767 node_paths=PackedStringArray("homeList", "backButton", "dressUpControl", "color_picker", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -353,7 +353,6 @@ backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 color_picker = NodePath("../../../ColorPicker")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Body" unique_id=390548319]
 layout_mode = 0
@@ -365,7 +364,7 @@ text = "BODY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Accessory" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="Accessory" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1123452268 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -375,7 +374,6 @@ goodList = NodePath("../../../Accessory")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Accessory" unique_id=1653524552]
 layout_mode = 0
@@ -387,7 +385,7 @@ text = "ACCESSORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Face" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="Face" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1730049321 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -397,7 +395,6 @@ goodList = NodePath("../../../Face")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Face" unique_id=1081937820]
 layout_mode = 0
@@ -409,7 +406,7 @@ text = "FACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FullBody" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="FullBody" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=839135462 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -419,7 +416,6 @@ goodList = NodePath("../../../Full_Body")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/FullBody" unique_id=280596257]
 layout_mode = 0
@@ -431,7 +427,7 @@ text = "FULL BODY CLOTHES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hat" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="Hat" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=619363420 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -441,7 +437,6 @@ goodList = NodePath("../../../Hat")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Hat" unique_id=350591766]
 layout_mode = 0
@@ -453,7 +448,7 @@ text = "HATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pants" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="Pants" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1043846626 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -463,7 +458,6 @@ goodList = NodePath("../../../Pants")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Pants" unique_id=1678357141]
 layout_mode = 0
@@ -475,7 +469,7 @@ text = "PANTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Shirt" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="Shirt" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=1722198595 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -485,7 +479,6 @@ goodList = NodePath("../../../Shirt")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Shirt" unique_id=1319102589]
 layout_mode = 0
@@ -497,7 +490,7 @@ text = "SHIRTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tail" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title", "randomize_button")]
+[node name="Tail" type="TextureButton" parent="Container/CanvasLayer/Dressup/List/VBoxContainer" unique_id=332186129 node_paths=PackedStringArray("homeList", "goodList", "backButton", "dressUpControl", "section_title")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("17_engdv")
@@ -507,7 +500,6 @@ goodList = NodePath("../../../Tail")
 backButton = NodePath("../../../Back")
 dressUpControl = NodePath("../../..")
 section_title = NodePath("../../../Section")
-randomize_button = NodePath("../../../Randomize")
 
 [node name="Label" type="Label" parent="Container/CanvasLayer/Dressup/List/VBoxContainer/Tail" unique_id=1000288938]
 layout_mode = 0
@@ -572,17 +564,7 @@ theme_override_font_sizes/font_size = 14
 text = "Saved to thisismylink"
 script = ExtResource("23_urx1x")
 
-[node name="KeepColors" type="CheckBox" parent="Container/CanvasLayer/Dressup" unique_id=975566068]
-layout_mode = 0
-offset_left = 783.0
-offset_top = 172.0
-offset_right = 1019.0
-offset_bottom = 203.0
-theme_override_fonts/font = ExtResource("17_rylax")
-theme_override_font_sizes/font_size = 12
-text = "KEEP COLORS; ONLY RANDOMIZE CLOTHES"
-
-[node name="GoodHandler" type="Node" parent="Container" unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container", "player_cat", "color_picker", "section_title", "keep_colors")]
+[node name="GoodHandler" type="Node" parent="Container" unique_id=501303278 node_paths=PackedStringArray("tail_container", "accessory_container", "face_container", "full_body_container", "hat_container", "pants_container", "shirt_container", "player_cat", "color_picker", "section_title")]
 script = ExtResource("19_s00i6")
 goodsContainer = ExtResource("21_664bt")
 tail_container = NodePath("../CanvasLayer/Dressup/Tail")
@@ -595,7 +577,6 @@ shirt_container = NodePath("../CanvasLayer/Dressup/Shirt")
 player_cat = NodePath("../Character")
 color_picker = NodePath("../CanvasLayer/Dressup/ColorPicker")
 section_title = NodePath("../CanvasLayer/Dressup/Section")
-keep_colors = NodePath("../CanvasLayer/Dressup/KeepColors")
 
 [node name="Background" type="Sprite2D" parent="Container" unique_id=1192258246]
 position = Vector2(12.625006, 0.24998379)

@@ -204,9 +204,9 @@ extends Resource
 
 @export var attribute1List : Dictionary[AllGoods.Goods, Attribute.ATTRIBUTES] = {
 	AllGoods.Goods.ACCESSORY_TIE: Attribute.ATTRIBUTES.WORK,
-	AllGoods.Goods.ACCESSORY_SHADES: Attribute.ATTRIBUTES.WORK,
-	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: Attribute.ATTRIBUTES.WORK,
-	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: Attribute.ATTRIBUTES.WORK,
+	AllGoods.Goods.ACCESSORY_SHADES: Attribute.ATTRIBUTES.COOL,
+	AllGoods.Goods.ACCESSORY_CIRCLE_GLASSES: Attribute.ATTRIBUTES.SMART,
+	AllGoods.Goods.ACCESSORY_SQUARE_GLASSES: Attribute.ATTRIBUTES.SMART,
 	AllGoods.Goods.ACCESSORY_BOW_TIE: Attribute.ATTRIBUTES.WORK,
 	AllGoods.Goods.ACCESSORY_SCARF: Attribute.ATTRIBUTES.WORK,
 	

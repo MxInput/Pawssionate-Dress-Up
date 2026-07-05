@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://um7yhxbk0vie" path="res://images/dressing/base/base_cat.png" id="1_kpl2c"]
 [ext_resource type="Texture2D" uid="uid://ctvob4dg04peu" path="res://images/costume_back.png" id="1_pkjkw"]
-[ext_resource type="Script" uid="uid://chlstrdae7pff" path="res://nodes/saved_outfit_handler.gd" id="1_sru2u"]
+[ext_resource type="Script" uid="uid://chlstrdae7pff" path="res://scripts/saved_outfit_handler.gd" id="1_sru2u"]
 [ext_resource type="Texture2D" uid="uid://disp7dvoy5v4f" path="res://images/dressing/base/base_cat_color.png" id="2_pkjkw"]
 [ext_resource type="Texture2D" uid="uid://dow8gi84hb5l3" path="res://images/dressing/faces/outlines/hearts_outline.png" id="4_6iw7t"]
 [ext_resource type="Texture2D" uid="uid://cwpf31wep7tdm" path="res://images/dressing/tails/outlines/tail1_outline.png" id="6_btjqx"]
