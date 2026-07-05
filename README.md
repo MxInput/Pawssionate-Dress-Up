@@ -8,6 +8,8 @@ Made in Godot
 
 Get the game here: https://mxinput.itch.io/pawssionate-dress-up
 
+**(Saving and taking screenshots only work when downloaded not in the web version.)**
+
 #### Fonts used in game from: 
 - https://www.1001fonts.com/kleptocracy-titling-font.html
 - https://www.1001fonts.com/stylish-handwriting-free-font.html
